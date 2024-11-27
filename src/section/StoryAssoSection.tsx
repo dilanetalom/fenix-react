@@ -3,14 +3,14 @@ import React from 'react'
 const StoryAssoSection: React.FC = () => {
     return (
         <div className='w-full lg:h-[583px] bg-white '>
-            <div className="w-full  h-full  container grid lg:grid-cols-2 grid-cols-1  py-20 lg:py-20 gap-8 mx-auto items-center">
-                <div className='lg:h-[316px] flex items-center'>
+            <div className="w-full  h-full  container grid lg:grid-cols-2 grid-cols-reverse-1  py-20 lg:py-20 gap-8 mx-auto items-center">
+                <div className='lg:h-[316px] flex items-center order-2 lg:order-1'>
                     <video className="w-full rounded-lg shadow-lg" controls>
                         
                            
                     </video>
                 </div>
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-5 order-1 lg:order-2'>
                     <h2 className="texth2 font-bold">
                         <span>Notre </span>
                         <span className='graycolor'> Histoire</span>

@@ -14,7 +14,7 @@ const Typebook:React.FC = () => {
     const dispatch = useDispatch<AppDispatch>(); // Typage du dispatch
     // const { books} = useSelector((state: RootState) => state.books);
 
-    useEffect(() => {
+    useEffect(() => {+
         dispatch(fetchBooksAsync());
     }, [dispatch]);
 
@@ -142,7 +142,7 @@ const Typebook:React.FC = () => {
         </div>
         </div>
         </div>
-        <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 justify-center mx-auto container py-20'>
+        <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 justify-center mx-auto container md:py-20 '>
             {
                 filteredBooks.map((item)=>{
                     return(
@@ -166,7 +166,7 @@ const Typebook:React.FC = () => {
             }
    
         </div>  
-        <div className='w-full flex justify-center pb-28'> 
+        <div className='w-full flex justify-center md:pb-28 pb-10'> 
                       <button onClick={()=>navigate('/menubook')} className='flex items-center text-[13px] lg:text-[16px] graycolor lg:w-[360.18px] w-[303px] px-[12px] py-[10px] rounded-[5px] border-[1px] border-[007F99] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
                         <span>
                             <img src={right} alt="" />

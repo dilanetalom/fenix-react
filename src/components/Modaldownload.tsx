@@ -8,8 +8,8 @@ const Downloadmodal: React.FC<modalprops> = ({ isOpen, onCloses }) => {
     return (
         <>
             {isOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]"  onClick={onCloses}>
-                    <div className=" rounded-lg overflow-hidden shadow-lg h-[580px] lg:w-[550px] flex flex-row gap-3 p-10">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]" onClick={onCloses} >
+                    <div className=" rounded-lg overflow-hidden shadow-lg h-[580px] lg:w-[550px] flex flex-row gap-3 p-10" onClick={(e) => e.stopPropagation()} >
                         <div className='lg:w-[473px] w-full  h-full flex flex-col justify-between opacitybackcolor rounded-lg lg:px-10 px-5 lg:py-16 py-8'>
                             <div className='w-full flex justify-center'>
                                 <div className=' text-[13px] text-red-500 flex justify-center items-center text-center w-[342px] h-[38px] border border-red-500 padding-[10px]'>

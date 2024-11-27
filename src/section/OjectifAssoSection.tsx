@@ -31,11 +31,11 @@ const OjectifAssoSection: React.FC = () => {
         },
     ]
     return (
-        <div className='w-full md:h-[721px] h-[750px]  relative graybackcolor'>
+        <div className='w-full md:h-[721px] h-[550px]   relative graybackcolor'>
 
             <div className=' w-full h-full   absolute'></div>
             <img src={assobook} alt="" className='w-full h-full object-cover object-center absolute' />
-            <div className='text-white absolute w-full md:h-full h-auto flex items-center mx-auto   '>
+            <div className='text-white absolute w-full md:h-full h-auto py-10 md:py-0 flex items-center mx-auto   '>
                 <div className='relative w-full flex flex-col lg:gap-20 gap-10 justify-center container mx-auto  '>
                     <h2 className='texth2 font-bold text-center'>Objectifs de notre l'Association</h2>
 

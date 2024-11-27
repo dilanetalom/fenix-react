@@ -128,7 +128,7 @@ const DetailAuthor: React.FC = () => {
                  Abdel-Samad'/>
 
 
-                <div className='opacitybackcolor   w-full h-auto'>
+                <div className='opacitybackcolor  w-full h-auto'>
                     
                         <div className=' w-full h-auto flex justify-center container mx-auto'>
                             <div className='w-full lg:h-[348px] h-full flex xl:flex-row flex-col  justify-between  mx-auto gap-10 '>
@@ -143,8 +143,8 @@ const DetailAuthor: React.FC = () => {
                                     <img src={author1} alt="" className='md:h-[348px] h-[250px] w-full object-cover object-center rounded-md' />
                                 </div>
                             </div>
-                    
-                    </div>
+                        </div>
+                        
                 </div>
 
 

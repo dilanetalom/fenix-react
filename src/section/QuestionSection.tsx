@@ -20,10 +20,10 @@ const Question:React.FC = () => {
 
 
   return (
-    <div className='w-full opacitybackcolor h-auto container pb-16 pt-10 flex flex-col justify-center mx-auto items-center space-y-10'>
+    <div className='w-full bg-white h-auto  pb-16 pt-10 flex flex-col justify-center mx-auto items-center space-y-10'>
 
-    <div className='w-full flex flex-col justify-center items-center'>
-        <div className='text-center lg:w-1/2'>
+    <div className='w-full flex flex-col justify-center items-center container'>
+        <div className='text-center  lg:w-1/2'>
             <p className='lg:text-[40px] text-[19px] font-bold'>Questions</p>
             <p className='text-[13px] font-[400]'>Nous avons pris le soin de répondre à vos intérrogations. Si vous avez d'autres
                 préoccupations,
@@ -32,16 +32,16 @@ const Question:React.FC = () => {
         </div>
     </div>
 
-    <div className='w-full flex justify-center '>
+    <div className='w-full flex justify-center container bg-white'>
         <Accordion activeIndex={activeIndex} 
           onClick={() => handleTabChange(0)}
-         className='lg:w-[90%] w-full opacitybackcolor'>
+         className='lg:w-[90%] w-full bg-white'>
             <AccordionTab 
             
             header={
-                <div className=" border-b-2 py-8 border-black border-opacity-50 flex justify-between">
+                <div className=" border-b-2 py-8 border-black border-opacity-50 bg-white flex justify-between">
                     <span className="header-text lg:text-[16px] text-[13px] font-bold">Qui êtes-vous ?</span>
-                    <span className={`header-icon ${toggleIcon(0)}`}></span>
+                    <span className={`header-icon   ${toggleIcon(0)}`}></span>
                 </div>
             } className='w-full'>
                 <p className="ml-2 text-justify py-3 lg:text-[16px] text-[13px]">
@@ -57,7 +57,7 @@ const Question:React.FC = () => {
 
             <AccordionTab
                 header={
-                    <div className="header-container border-b-2 py-8 border-black border-opacity-50 flex justify-between">
+                    <div className="header-container border-b-2 py-8 border-black bg-white border-opacity-50 flex justify-between">
                         <span className="header-text lg:text-[16px] text-[13px] font-bold">Que proposez-vous comme services ?</span>
                         <span className={`header-icon ${toggleIcon(1)}`}></span>
                         
@@ -74,7 +74,7 @@ const Question:React.FC = () => {
                 </p>
             </AccordionTab>
             <AccordionTab header={
-                <div className="header-container border-b-2 py-8 border-black border-opacity-50 flex justify-between">
+                <div className="header-container border-b-2 py-8 border-black  bg-white border-opacity-50 flex justify-between">
                     <span className="header-text lg:text-[16px] text-[13px] font-bold">Quels sont vos tarifs ?</span>
                     <span className={`header-icon ${toggleIcon(2)}`}></span>
                 </div>
@@ -88,7 +88,7 @@ const Question:React.FC = () => {
                 </p>
             </AccordionTab>
             <AccordionTab header={
-                <div className="header-container border-b-2 py-8 border-black border-opacity-50 flex justify-between">
+                <div className="header-container border-b-2 py-8 border-black bg-white border-opacity-50 flex justify-between">
                     <span className="header-text lg:text-[16px] text-[13px] font-bold">Proposez-vous des offres ?</span>
                     <span className={`header-icon ${toggleIcon(3)}`}></span>
                 </div>
@@ -103,7 +103,7 @@ const Question:React.FC = () => {
                 </p>
             </AccordionTab>
             <AccordionTab header={
-                <div className="header-container border-b-2 py-8 border-black border-opacity-50 flex justify-between">
+                <div className="header-container border-b-2 py-8 border-black bg-white border-opacity-50 flex justify-between">
                     <span className="header-text lg:text-[16px] text-[13px] font-bold">Pour qui travaillez-vous ?</span>
                     <span className={`header-icon ${toggleIcon(4)}`}></span>
                 </div>

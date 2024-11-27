@@ -40,7 +40,7 @@ const EventAssoSection:React.FC = () => {
          description="Concours & Campagnes"
          />
      
-     <div className='w-full '>
+     <div className='w-full h'>
      <Swiper
            spaceBetween={30}
            slidesPerView={itemsPerSlide}
@@ -53,7 +53,7 @@ const EventAssoSection:React.FC = () => {
           liste.map((item) => {
             return (
             <SwiperSlide key={item.id} className=''>
-         <div className='w-full flex flex-col gap-10 lg:gap-0 justify-end overflow-x-hidden container'>
+         <div className='w-full flex flex-col gap-5 lg:gap-0 justify-end overflow-x-hidden container'>
             <div className='flex flex-col lg:px-20 transform lg:-translate-x-36  '>
                 <div className='w-[467px] h-[351px] transform translate-x-10 hidden lg:block'>
                     <img src={cam1} alt="" className='w-full h-full object-cover object-center rounded-[5px]' />

@@ -73,7 +73,7 @@ const Detailbook: React.FC = () => {
 
                 <div className='lg:h-[608px] h-auto  bg-yellow-100 w-full'>
                     <div className='w-full h-full container lg:py-10 py-36 flex lg:flex-row flex-reverse-col  mx-auto  justify-center gap-10'>
-                        <div className='h-[420px] w-[292px]'>
+                        <div className='h-[420px] w-[292px] md:block hidden'>
                             <img src={choice1} alt="" className='h-full w-full object-cover object-center' />
                         </div>
                         <div className='space-y-6 '>
@@ -82,39 +82,38 @@ const Detailbook: React.FC = () => {
                             <div className='flex lg:flex-row   text-[16px] gap-3'>
 
 
-                                <div className='border border-gray-600  lg:w-[252px] w-[177px] text-[11px]  flex justify-between'>
-                                    <span className='lg:p-2 p-1 w-1/2'>
-                                        <div className='flex items-center lg:gap-2 gap-1 lg:px-2'>
-                                            <img src={person} alt="" className='w-[15px] h-[15px] lg:w-[25px] lg:h-[25px] text-[10px] ' />
-                                            <span className='p-2 '>
+                                <div className='border border-gray-600  border-opacity-45 lg:w-[252px] h-[37px] w-[177px] text-[11px]  flex justify-between'>
+                                        <div className='flex items-center md:gap-2 px-2'>
+                                            <img src={person} alt="" className='lg:w-[25px] lg:h-[25px] w-[15px] h-[15px]'  />
+                                            <span className='p-2 md:text-[13px]'>
                                                 Auteur</span>
                                         </div>
-
-                                    </span>
-                                    <span className='border-l border-gray-600 w-1/2  font-bold p-2 flex items-center text-[13px]'>Olivier guez</span>
+                                    <span className='border-l border-gray-600 border-opacity-45 w-1/2  font-bold p-2 flex items-center md:text-[13px]'>Olivier guez</span>
                                 </div>
-                                <div className='border border-gray-600  lg:w-[252px] w-[177px] flex justify-between text-[13px]'>
-                                    <div className='flex items-center gap-2 px-2'>
+
+
+                                <div className='border border-gray-600 border-opacity-45 lg:w-[252px] w-[177px] h-[37px] flex justify-between text-[13px]'>
+                                    <div className='flex items-center md:gap-2 px-2'>
                                         <img src={al} alt="" className='lg:w-[25px] lg:h-[25px] w-[15px] h-[15px]' />
                                         <span className='p-2'>
                                             Langue</span>
                                     </div>
 
-                                    <span className='border-l border-gray-600  font-bold p-2 flex items-center text-[13px]'>Olivier guezz</span>
+                                    <span className='border-l border-gray-600 border-opacity-45 font-bold p-2 flex items-center md:text-[13px]'>Francais</span>
                                 </div>
 
 
                             </div>
-                            <div className='flex  w-[350px] text-[16px] mt-8'>
-                                <div className='border border-gray-600 p-2'>
+                            <div className='flex  md:w-[350px] w-[276px] h-[37px] md:text-[16px] text-[13px] mt-8 border border-gray-600 border-opacity-45'>
+                              
                                     <div className='flex items-center gap-2 px-2'>
                                         <img src={date} alt="" />
                                         <span className='p-2'>
                                             Date de publication</span>
                                     </div>
 
-                                </div>
-                                <div className='border border-gray-600 p-2 font-bold flex items-center'>Olivier guezz</div>
+                               
+                                <div className='border-l border-gray-600 border-opacity-45 p-2 font-bold flex items-center'>Olivier guezz</div>
                             </div>
                             <p className='text-[13px] font-bold'>Commander selon votre choix de format</p>
                             <div className='lg:h-[93px] w-full flex lg:flex-row flex-col   md:gap-10 gap-5'>
@@ -150,7 +149,7 @@ const Detailbook: React.FC = () => {
 
 
                                 </div>
-                                <div className='md:w-1/2 h-full'>
+                                <div className='md:w-1/2 h-full w-full'>
                                     <button onClick={() => setIsModalOpens(true)} className='font-bold md:w-[250px] w-full lg:h-full h-[93px] border border-black px-[12px] py-[10px] flex items-center justify-center gap-2'>
                                         <span>   Télécharger fiche détail</span>
                                         <span>
@@ -160,14 +159,14 @@ const Detailbook: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className='flex lg:flex-row flex-col lg:justify-between  gap-3 text-white'>
+                            <div className='flex lg:flex-row flex-col lg:justify-between  gap-9 text-white'>
                                 <div className='flex w-full '>
-                                    <button className='w-[245px] h-[42px] bg-[#29A71A] font-bold'>Commande via Whatsapp</button>
-                                    <button className='h-[42px] border border-[#29A71A] w-[42px] flex justify-center items-center'>
+                                    <button className='md:w-[245px] w-[321.51px] h-[42px] bg-[#29A71A] font-bold'>Commande via Whatsapp</button>
+                                    <button className='h-[42px] border border-[#29A71A] w-[42px] flex justify-center items-center bg-white'>
                                         <img src={what} alt="" />
                                     </button>
                                 </div>
-                                <button onClick={() => setIsModalOpen(true)} className='md:w-[287px] h-[42px] graybackcolor font-bold'>Acheter</button>
+                                <button onClick={() => setIsModalOpen(true)} className='md:w-full  px-[12px] py-[10px] h-[42px] graybackcolor font-bold'>Acheter</button>
                             </div>
                         </div>
                     </div>
@@ -197,8 +196,8 @@ const Detailbook: React.FC = () => {
                 </div>
 
                 <div className='w-full h-auto  py-16 yellowbackcolor '>
-                    <div className='container w-full h-full flex lg:flex-row gap-5 lg:gap-0 flex-col justify-between items-center  mx-auto'>
-                        <div className='flex flex-col gap-5 items-center lg:items-start'>
+                    <div className='container w-full h-full flex lg:flex-row gap-10 lg:gap-0 flex-col justify-between items-center  mx-auto'>
+                        <div className='flex flex-col gap-5  lg:items-start'>
                             <h2 className='texth2 font-bold'>Rentrée littéraire 2024</h2>
                             <p className='text-[13px]'>Découvrez les 12 titres de la Rentrée littéraire Finex</p>
                             <button onClick={()=>navigate("/menubook")} className='w-[222px] h-[42px] px-[12px] py-[10px] rounded-[5px] border border-black'>JE VEUX DECOUVRIR</button>

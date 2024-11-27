@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../images/logo.png'
-import panier from '../images/panier.png'
+// import panier from '../images/panier.png'
 import bookicon from '../images/bookicon.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
@@ -12,11 +12,11 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const lien = [
-    {
-      id: 1,
-      text: "Agenda",
-      link: "/agenda"
-    },
+    // {
+    //   id: 1,
+    //   text: "Agenda",
+    //   link: "/agenda"
+    // },
     {
       id: 2,
       text: "Nos Livres",
@@ -73,10 +73,10 @@ const Navbar: React.FC = () => {
               <span><FaInstagram size={25} /></span>
               <span><FaLinkedin size={25} /></span>
             </div>
-            <div className='relative'>
+            {/* <div className='relative'>
               <img src={panier} alt="Panier" className='h-[25px] w-[25px]' />
               <div className='w-[22px] h-[22px] rounded-full orangebackcolor flex items-center justify-center text-white absolute -top-4 -right-2'>0</div>
-            </div>
+            </div> */}
             <button
               className="md:hidden p-2"
               onClick={() => setIsOpen(!isOpen)}

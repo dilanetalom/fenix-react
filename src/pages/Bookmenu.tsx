@@ -176,7 +176,7 @@ const Bookmenu: React.FC = () => {
                         }
 
                     </div>
-                    <div className='flex w-full justify-center mt-5'>
+                    <div className='flex w-full justify-center lg:mt-5'>
                         {Array.from({ length: totalPages }, (_, index) => (
                             <button
                                 key={index + 1}

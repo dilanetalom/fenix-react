@@ -42,7 +42,7 @@ const About: React.FC = () => {
                     <div className='w-full h-[313px] graybackcolor mt-20 lg:mt-0'>
                         <div className='container h-full w-full flex flex-row items-center px-20 lg:px-0'>
 
-                            <div className='w-[680px] flex flex-col justify-center'>
+                            <div className='w-[680px] flex flex-col gap-6 justify-center'>
                                 <h1 className='texth1 text-white font-bold'>À Propos de Nous</h1>
                                 <p className='text-[13px] text-white'>Découvrez l’histoire de notre maison d’édition,
                                     dédiée à la promotion des talents littéraires. Nous allions tradition et innovation
@@ -52,13 +52,13 @@ const About: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className='w-full h-[510px] '>
+                    <div className='w-full md:h-[510px] h-[286px] '>
                         <img src={about} alt="" className='w-full h-full object-cover object-center' />
                     </div>
 
                     <div className='w-full h-auto py-20 opacitybackcolor'>
                         <div className='container flex mx-auto'>
-                            <div className='w-full h-auto flex lg:flex-row flex-col  gap-10'>
+                            <div className='w-full h-auto flex lg:flex-row flex-col-reverse  gap-10'>
                                 <div className='lg:w-[40%] flex flex-col justify-center items-center'>
                                     <img src={about1} alt="" className='w-full h-[438px] object-cover object-center rounded-[10px]' />
                                     <p className='text-center w-[135px] text-center text-[11px]'>Founder & CEO de Finex
@@ -116,7 +116,7 @@ const About: React.FC = () => {
                                         à sa tête, une passionnée qui, chaque jour, met tout son cœur dans ce projet.
                                     </p>
                                 </div>
-                                <div className='lg:w-[45%] flex flex-col justify-center items-center'>
+                                <div className='lg:w-[45%] flex flex-col justify-center items-center md:block hidden'>
                                     <img src={about1} alt="" className='w-[446px] h-[446px] object-cover object-center rounded-[10px]' />
 
                                 </div>
@@ -124,10 +124,10 @@ const About: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className='w-full h-auto py-24 flex flex-col gap-20'>
+                    <div className='w-full h-auto md:py-24 py-10 flex flex-col gap-20'>
                         <div className='w-full flex flex-col justify-center container items-center'>
-                            <h3 className='text-[33px] font-bold'>Notre Équipe Passionnée</h3>
-                            <p>Découvrez les visages qui, au quotidien, travaillent avec passion pour faire rayonner la littérature.</p>
+                            <h3 className='texth2 font-bold'>Notre Équipe Passionnée</h3>
+                            <p className='text-[13px] md:text-[16px] text-center'>Découvrez les visages qui, au quotidien, travaillent avec passion pour faire rayonner la littérature.</p>
                         </div>
                         <div className='w-full h-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-5 pb-10 container mx-auto'>
                             {

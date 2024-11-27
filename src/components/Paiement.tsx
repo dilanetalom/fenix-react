@@ -11,7 +11,7 @@ const Paiement: React.FC<modalprops> = ({ isOpen, onClose }) => {
         <>
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]" onClick={onClose}>
-                    <div className=" rounded-lg overflow-hidden shadow-lg h-[580px] w-[550px] flex flex-row gap-3 p-10 lg:p-0">
+                    <div className=" rounded-lg overflow-hidden shadow-lg h-[580px] w-[550px] flex flex-row gap-3 p-10 lg:p-0 " onClick={(e) => e.stopPropagation()} >
                         <div className='lg:w-[473px] h-full flex flex-col justify-between opacitybackcolor rounded-lg lg:px-10 px-5 lg:py-16 py-8'>
                             <h3 className='font-bold text-[23px]'>
                                 Moyen de paiement

@@ -38,11 +38,11 @@ const CustomSlider = () => {
     const itemTemplate = (book:any) => {
         return (
           <div className='w-full'>
-              <div className="flex md:flex-row flex-col items-center justify-center w-full gap-6 lg:gap-0">
+              <div className="flex md:flex-row flex-col items-center  w-full gap-6 lg:gap-0">
                 <div className='w-full'>
                     <img src={book.src} alt={book.title} className="lg:w-[309px] w-full lg:h-[440px] h-[320px]" />
                 </div>
-                <div className="flex flex-col gap-5 md:w-[700px] w-[300px] h-[212px] items-start">
+                <div className="flex flex-col gap-5  h-[212px] ">
                     <h2 className="md:text-[23px] text-[16px] text-white font-bold">{book.title}</h2>
                     <p className="text-white md:text-[13px] text-[10px]">{book.description}</p>
                     <button className="px-[12px] py-[10px] bg-yellow-500 rounded-[5px] w-[134px] h-[42px]">

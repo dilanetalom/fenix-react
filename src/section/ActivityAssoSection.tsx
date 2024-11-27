@@ -66,7 +66,7 @@ const ActivityAssoSection: React.FC = () => {
                             })
                         }
                     </div>
-                    <div className="lg:w-1/2 h-full">
+                    <div className="lg:w-1/2 h-full md:block hidden">
                         <video className="w-full h-full rounded-lg shadow-lg" controls>
 
                         </video>

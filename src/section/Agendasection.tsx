@@ -19,8 +19,8 @@ const Agendasection:React.FC = () => {
         },
     ]
   return (
-    <div className='w-full h-auto graybackcolor mx-auto flex lg:flex-row  flex-col gap-10'>
-       <div className='lg:w-[55%] lg:pl-[146px] py-10 flex flex-col gap-5 lg:border-b border-white px-5 lg:px-0'>
+    <div className='w-full h-auto graybackcolor mx-auto flex lg:flex-row  flex-col gap-10 lg:border-b border-white border-opacity-45'>
+       <div className='lg:w-[55%] lg:pl-[146px] py-10 flex flex-col gap-5  px-5 lg:px-0'>
 <h2 className='texth2 font-bold text-white'>Agenda</h2>
 
 {
@@ -44,7 +44,7 @@ const Agendasection:React.FC = () => {
         )
     })
 }
-<div className='flex lg:justify-end justify-center'>
+<div className='flex lg:justify-end justify-center mt-10'>
     <button onClick={()=>navigate("/agenda")} className='px-[12px] py-[10px] rounded-[5px] yellowbackcolor flex gap-2 text-[13px] lg:text-[16px]'>
         <img src={left} alt="" />
         <span>DÉCOUVRIR NOTRE AGENDA</span>

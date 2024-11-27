@@ -74,7 +74,7 @@ const News: React.FC = () => {
     };
 
     return (
-        <div className='w-full h-auto opacitybackcolor py-20'>
+        <div className='w-full h-auto opacitybackcolor md:py-20 py-10'>
             <div className='container py-10 flex flex-col mx-auto gap-10'>
                 <h2 className='texth2 font-bold'>Actualités</h2>
                 <div className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5'>
