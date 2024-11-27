@@ -1,0 +1,200 @@
+import React, { useState } from 'react'
+import Layouts from '../partials/Layouts'
+import Newsletter from '../section/NewsletterSection'
+import book1 from "../images/book1.png"
+import HeadersecondComponent from '../components/HeadersecondComponent'
+import ModalNews from '../components/NewmodalComponent'
+import { Link } from 'react-router-dom'
+import InputComponent from '../components/InputComponent'
+
+const Newspage: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const book = [
+        {
+            id: 1,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 2,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 3,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 4,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 5,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 6,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 7,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 8,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+        {
+            id: 9,
+            first: "NOUVEAUTE",
+            image: book1,
+            title: "JACARANDA",
+            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+        },
+
+    ]
+
+
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3; // Nombre d'articles par page
+
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(book.length / itemsPerPage);
+
+    // Calculer les articles à afficher sur la page actuelle
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentNews = book.slice(startIndex, startIndex + itemsPerPage);
+
+    // Gérer le changement de page
+    const handlePageChange = (pageNumber: React.SetStateAction<number>) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const etude = [
+        { label: 'Niveau d’etude', value: '1' },
+        { label: 'Option 2', value: '2' },
+        { label: 'Option 3', value: '3' }
+    ];
+
+    const [selectedDate, setSelectedDate] = useState('');
+
+    const handleChange = (event:any) => {
+        setSelectedDate(event.target.value);
+    };
+
+    return (
+        <>
+            <Layouts>
+                <ModalNews isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                <HeadersecondComponent title='  Découvrez
+                                nos actualités'/>
+                <div className='py-20 w-full h-auto opacitybackcolor flex flex-col gap-28 '>
+                    <div className='container flex lg:flex-row flex-col justify-center mx-auto'>
+                        <div className='grid lg:grid-cols-3 grid-cols-1 lg:gap-4 gap-2 lg:w-[801px] lg:h-[61px]  border-gray-500 rounded-[10px] '>
+                            <InputComponent
+                                options={etude}
+                                first='format'
+                            />
+
+                            <div className="flex flex-col ">
+                                
+                                <input
+                                    type="date"
+                                    id="date"
+                                    value={selectedDate}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
+                                />
+                                {selectedDate && (
+                                    <p className="mt-2 text-gray-500">
+                                        Selected Date: {new Date(selectedDate).toLocaleDateString()}
+                                    </p>
+                                )}
+                            </div>
+
+                            <InputComponent
+                                options={etude}
+                                first='format'
+                            />
+                        </div>
+                    </div>
+                    <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto container gap-5'>
+                        {
+                            currentNews.map((item) => {
+                                return (
+                                    <Link key={item.id} to="" className=' md:h-[416px] h-[500px] shadow-xl bg-white rounded-[5px]' onClick={() => setIsModalOpen(true)}>
+                                        <div className='h-1/2 w-full'>
+                                            <img src={book1} alt="" className='w-full h-full object-cover object-center' />
+                                        </div>
+                                        <div className='h-1/2 p-6 space-y-4'>
+                                            <div className='py-1 px-2 text-[13px] yellowbackcolor inline-block rounded-full'>
+                                                30/10/2024
+                                            </div>
+                                            <p className='text-[13px]'>
+                                                Yasmina Reza sera à la Librairie Le Neuvième
+                                                Pays à Paris pour rencontrer ses lecteurs et
+                                                dédicacer son livre, Récits de certains faits
+                                            </p>
+                                            <button className='w-[117px] rounded-[5px] p-[10px] yellowbackcolor font-bold text-[11px]'>EN SAVOIR PLUS</button>
+                                        </div>
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='flex w-full justify-center mt-5'>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => handlePageChange(index + 1)}
+                                className={`mx-2 px-4 py-2 border rounded ${currentPage === index + 1 ? 'graybackcolor text-white' : 'bg-white graycolor'}`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div className='w-full h-auto bg-white '>
+                    <div className='h-full w-full container  flex justify-center items-center mx-auto py-24'>
+                        <div className='lg:w-[613px] lg:h-[182px] rounded-[10px] orangebackcolor md:p-10 p-5 flex lg:flex-row flex-col gap-5 text-white'>
+                            <div className='lg:w-1/2 h-full'>
+                                <p className='text-[23px] font-bold'>Abonnez-vous à la newsletter</p>
+                                <p className='text-[13px] '>Recevez nos dernières actualités directement dans votre boîte mail</p>
+                            </div>
+                            <div className='lg:w-1/2 h-full relative flex items-center '>
+                                <input type="text" placeholder='Votre e-mail' className='w-full h-[45px] rounded-full orangebackcolor border-[1px] md:text-[13px] text-[11px] outline-none text-white px-3' />
+                                <button className='absolute bg-black right-2 lg:top-8 top-1 h-[36px] w-[89px] rounded-full md:text-[13px] text-[11px]'>ENVOYEZ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Newsletter />
+            </Layouts>
+        </>
+    )
+}
+
+export default Newspage

@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  right: 0px;
+  top: 0px;
+
+}
+
+.p-carousel .p-carousel-prev,
+.p-carousel .p-carousel-next {
+    color: white; /* Couleur personnalisée */
+    font-size: 6em; /* Taille personnalisée */
+    font-weight: 700;
+}
+
+
+.pure-react-carousel .carousel__slider-tray--horizontal {
+  overflow: visible; /* Permet de voir les cartes partiellement visibles */
+}
+
+/* .p-carousel .p-carousel-next{
+    margin-left: 150px;
+} */
+
+
+
+/* class pour les couleurs  */
+.graycolor{
+  color: #007f99;
+ }
+ .graybackcolor{
+  background-color: #007f99;
+ }
+ .orangecolor{
+  color: #FF7300;
+ }
+ .orangebackcolor{
+ background-color: #FF7300;
+ }
+ .yellowcolor{
+  color: #f6d860;
+ }
+ .yellowbackcolor{
+ background-color: #f6d860;
+ }
+
+ .opacitycolor{
+  color: #f4f4f4;
+ }
+ .opacitybackcolor{
+  background-color: #f4f4f4;
+ }
+
+ .texth1{
+  font-size: 48px;
+ }
+ .texth2{
+  font-size: 40px;
+ }
+ .texth3{
+  font-size: 33px;
+ }
+ .texth4{
+  font-size: 28px;
+ }
+ .texth5{
+  font-size: 25px;
+ }
+
+
+ .texttitle{
+  font-size: 19px;
+ }
+
+
+
+
+
+/* Si vous souhaitez ajouter un style personnalisé en plus de Tailwind */
+
+@media (min-width: 960px) { /* Écrans petits (sm) et plus */
+  .container{
+    padding-left: 146px;
+    padding-right: 146px;
+    box-sizing: border-box;
+   }
+}
+@media (max-width: 840px) { /* Écrans petits (sm) et plus */
+  .container{
+    padding-left: 70px;
+    padding-right: 70px;
+    box-sizing: border-box;
+   }
+   .texth1{
+    font-size: 36px;
+   }
+   .texth2{
+    font-size: 30px;
+ }
+}
+
+.swiper-pagination-bullet {
+  background: #007f99; 
+  opacity: 0.7; 
+}
+
+.swiper-pagination-bullet-active {
+  background: #005f7f; 
+  opacity: 1; 
+}
+
+@media (max-width: 640px) { /* Écrans petits (sm) et plus */
+  .container{
+    padding-left: 60px;
+    padding-right: 60px;
+   }
+   .texth2{
+      font-size: 28px;
+   }
+}
+
+@media (max-width: 439px) { /* Écrans plus petits que sm */
+  .container{
+    padding-left: 20px;
+    padding-right: 20px;
+   }
+   .texth1{
+    font-size: 23px;
+   }
+   .texth2{
+    font-size: 19px;
+   }
+   .texth3{
+    font-size: 33px;
+   }
+   .texth4{
+    font-size: 19px;
+   }
+   .texth5{
+    font-size: 25px;
+   }
+}
+
+.navbar {
+  position: fixed; /* Rendre la navbar fixe */
+  top: 0; /* Positionner la navbar en haut de la page */
+  left: 0; /* S'assurer qu'elle commence à gauche */
+  width: 100%; /* Prendre toute la largeur */
+  background-color: white; /* Couleur de fond */
+  z-index: 1000; /* Valeur élevée pour passer au-dessus des autres éléments */
+  opacity: 0; /* Initialement invisible (si vous utilisez une animation) */
+  transform: translateY(-20px); /* Position initiale pour l'animation */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transition douce */
+  pointer-events: none; /* Désactiver les événements quand la navbar est fermée */
+}
+
+.navbar.open {
+  opacity: 1; /* Rendre visible */
+  transform: translateY(0); /* Positionner normalement */
+  pointer-events: auto; /* Activer les événements */
+}
+
+
+
+
+
+.slick-arrow {
+  font-size: 30px; /* Augmentez la taille des boutons */
+  color: #000;     /* Couleur des boutons */
+  z-index: 1;      /* Assurez-vous qu'ils sont au-dessus des images */
+  cursor: pointer; /* Pointeur pour indiquer que c'est cliquable */
+}
+
+.prev-arrow {
+  left: -40px; /* Ajustez la position du bouton gauche */
+}
+
+.next-arrow {
+  right: -40px; /* Ajustez la position du bouton droit */
+}
+
+
+
+
+/* dream */
+
+.swiper-slide {
+  transition: transform 0.5s ease; /* Transition pour le zoom */
+}
+
+.swiper-slide.scale-110 {
+  transform: scale(1.1); /* Zoom sur l'image active */
+}
+
+.swiper-slide.scale-90 {
+  transform: scale(0.9); /* Réduction pour les images non actives */
+}

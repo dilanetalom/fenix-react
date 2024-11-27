@@ -1,0 +1,16 @@
+.swiper_container {
+    width: 100%;
+    height: 400px; /* Ajustez selon vos besoins */
+}
+
+.swiper-slide {
+    transition: transform 0.5s ease; /* Transition pour le zoom */
+}
+
+.swiper-slide img {
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.swiper-pagination {
+    bottom: 20px; /* Ajustez la valeur selon vos besoins */
+  }
