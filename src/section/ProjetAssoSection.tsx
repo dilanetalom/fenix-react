@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import activity1 from "../images/activity1.png"
+// import activity1 from "../images/activity1.png"
 import AssociationComponent from '../components/AssociationComponent';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow,   
@@ -16,14 +16,14 @@ import { NewsData } from '../pages/Newspage';
 const ProjetAssoSection: React.FC = () => {
 
 
-    const datas = [
-        { id: 1, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-        { id: 2, image: activity1, title: "Projet", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-        { id: 3, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-        { id: 4, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-        { id: 5, image: activity1, title: "Projet", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-        { id: 6, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
-    ];
+    // const datas = [
+    //     { id: 1, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    //     { id: 2, image: activity1, title: "Projet", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    //     { id: 3, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    //     { id: 4, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    //     { id: 5, image: activity1, title: "Projet", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    //     { id: 6, image: activity1, title: "Actualité", description: "Une belle soirée d’échanges avec des auteurs locaux et plus de 50 participants passionnés." },
+    // ];
 
 
 

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AssociationComponent from '../components/AssociationComponent'
 import act1 from "../images/act1.png"
 import act2 from "../images/act2.png"
 import act3 from "../images/act3.png"
 import act4 from "../images/act4.png"
 import act5 from "../images/act5.png"
-import { NewsData } from '../pages/Newspage'
-import axios from 'axios'
+// import { NewsData } from '../pages/Newspage'
+// import axios from 'axios'
 
 
 const ActivityAssoSection: React.FC = () => {

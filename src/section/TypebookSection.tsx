@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import book1 from "../images/book1.png"
+// import book1 from "../images/book1.png"
 import vector from "../images/Vector.png"
 import right from "../images/right.png"
 import { Link, useNavigate } from 'react-router-dom'
@@ -52,81 +52,81 @@ const Typebook:React.FC = () => {
         getBooks()
     },[])
 
-    const book = [
-        {
-            id:1,
-            first:"NOUVEAUTE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:2,
-            first:"NOUVEAUTE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:3,
-            first:"NOUVEAUTE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:4,
-            first:"NOUVEAUTE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:5,
-            first:"NOUVEAUTE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:6,
-            first:"A PARAITRE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:7,
-            first:"A PARAITRE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id:8,
-            first:"A PARAITRE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
+    // const book = [
+    //     {
+    //         id:1,
+    //         first:"NOUVEAUTE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:2,
+    //         first:"NOUVEAUTE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:3,
+    //         first:"NOUVEAUTE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:4,
+    //         first:"NOUVEAUTE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:5,
+    //         first:"NOUVEAUTE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:6,
+    //         first:"A PARAITRE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:7,
+    //         first:"A PARAITRE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id:8,
+    //         first:"A PARAITRE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
      
-        {
-            id:9,
-            first:"A PARAITRE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
+    //     {
+    //         id:9,
+    //         first:"A PARAITRE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
      
-        {
-            id:10,
-            first:"A PARAITRE",
-            image:book1,
-            title:"JACARANDA",
-            description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
+    //     {
+    //         id:10,
+    //         first:"A PARAITRE",
+    //         image:book1,
+    //         title:"JACARANDA",
+    //         description:" Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
      
-    ]
+    // ]
 
       // Fonction pour filtrer les livres selon le filtre sélectionné
       const filteredBooks = books.filter((item) => {

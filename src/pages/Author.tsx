@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import WishesComponent from '../components/WishesComponent'
@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import HeadersecondComponent from '../components/HeadersecondComponent'
 import InputComponent from '../components/InputComponent'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 const Author: React.FC = () => {
