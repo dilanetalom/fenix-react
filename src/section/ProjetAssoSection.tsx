@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import activity1 from "../images/activity1.png"
 import AssociationComponent from '../components/AssociationComponent';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow,   
     Pagination } from 'swiper/modules';
+import axios from 'axios';
+import { NewsData } from '../pages/Newspage';
 // import 'swiper/css';
 
 
@@ -25,7 +27,23 @@ const ProjetAssoSection: React.FC = () => {
 
 
 
+    const[news, setNews]=useState<NewsData[]>([]);
+    const API_URL = 'http://127.0.0.1:8000/api';
+
+    const getBooks = async () => {
+           try {
+               const response = await axios.get(`${API_URL}/getnews`,);
+               setNews(response.data);
+           } catch (error) {
+               console.error('Erreur lors de la récupération des livres:', error);
+               throw error;
+           }
+       };
    
+       useEffect(()=>{
+           getBooks()
+       },[])
+
 
 
 
@@ -45,15 +63,16 @@ const ProjetAssoSection: React.FC = () => {
                  modules={[EffectCoverflow, Pagination]}   
                
                 >
-                    {datas.map((item) => (
+                    {news.map((item) => (
                          <SwiperSlide>
                         <div key={item.id} className='w-[300px] h-[445px]'> {/* Chaque slide prend un tiers de l'espace */}
-                            <img src={item.image} alt={item.title} className='w-full h-[270px] object-cover rounded-[5px]' />
+                           <img src={`http://127.0.0.1:8000/images/news/${item.image}`}
+                            alt={item.name} className='w-full h-[270px] object-cover rounded-[5px]' />
                             <div className='flex flex-col   gap-5 pt-5'>
-                                <div className={`w-[79px] h-[28px] rounded-full px-[10px] py-[5px] ${item.title === "Projet" ? "bg-orange-500 text-white" : "bg-yellow-500"} text-[13px] flex justify-center`}>
-                                    {item.title}
+                                <div className={`w-[79px] h-[28px] rounded-full px-[10px] py-[5px] ${item.name === "Projet" ? "bg-orange-500 text-white" : "bg-yellow-500"} text-[13px] flex justify-center`}>
+                                    {item.type}
                                 </div>
-                                <div className='text-[13px]'>{item.description}</div>
+                                <div className='text-[13px] h-[80px]'>{item.description}</div>
                                 <button className='w-[131px] h-[38px] p-[10px] border-[1px] border-gray-400 text-[13px] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
                                     EN SAVOIR PLUS
                                 </button>

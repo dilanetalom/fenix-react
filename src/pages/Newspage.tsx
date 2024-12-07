@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import book1 from "../images/book1.png"
@@ -6,7 +6,19 @@ import HeadersecondComponent from '../components/HeadersecondComponent'
 import ModalNews from '../components/NewmodalComponent'
 import { Link } from 'react-router-dom'
 import InputComponent from '../components/InputComponent'
+import axios from 'axios'
 
+
+export interface NewsData {
+    id: number;
+    name: string;
+    description: string;
+    newsdate: string; // Format de date approprié
+    image: File | null;
+    type: string;
+    frome: string;
+    user_id: string; // ID de l'utilisateur
+}
 const Newspage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const book = [
@@ -75,6 +87,24 @@ const Newspage: React.FC = () => {
         },
 
     ]
+    const[news, setNews]=useState<NewsData[]>([]);
+    const API_URL = 'http://127.0.0.1:8000/api';
+
+    const getBooks = async () => {
+           try {
+               const response = await axios.get(`${API_URL}/getnews`,);
+               setNews(response.data);
+           } catch (error) {
+               console.error('Erreur lors de la récupération des livres:', error);
+               throw error;
+           }
+       };
+   
+       useEffect(()=>{
+           getBooks()
+       },[])
+   
+
 
 
 
@@ -86,7 +116,7 @@ const Newspage: React.FC = () => {
 
     // Calculer les articles à afficher sur la page actuelle
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentNews = book.slice(startIndex, startIndex + itemsPerPage);
+    const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
 
     // Gérer le changement de page
     const handlePageChange = (pageNumber: React.SetStateAction<number>) => {
@@ -147,16 +177,15 @@ const Newspage: React.FC = () => {
                                 return (
                                     <Link key={item.id} to="" className=' md:h-[416px] h-[500px] shadow-xl bg-white rounded-[5px]' onClick={() => setIsModalOpen(true)}>
                                         <div className='h-1/2 w-full'>
-                                            <img src={book1} alt="" className='w-full h-full object-cover object-center' />
+                                            <img src={`http://127.0.0.1:8000/images/news/${item.image}`}
+                                            alt="" className='w-full h-full object-cover object-center' />
                                         </div>
                                         <div className='h-1/2 p-6 space-y-4'>
                                             <div className='py-1 px-2 text-[13px] yellowbackcolor inline-block rounded-full'>
-                                                30/10/2024
+                                                {item.newsdate}
                                             </div>
                                             <p className='text-[13px]'>
-                                                Yasmina Reza sera à la Librairie Le Neuvième
-                                                Pays à Paris pour rencontrer ses lecteurs et
-                                                dédicacer son livre, Récits de certains faits
+                                            {item.description}
                                             </p>
                                             <button className='w-[117px] rounded-[5px] p-[10px] yellowbackcolor font-bold text-[11px]'>EN SAVOIR PLUS</button>
                                         </div>

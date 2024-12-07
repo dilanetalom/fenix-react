@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
                 </div> 
                 <div  className='h-[10%] md:flex justify-between pt-3'>
       <div>  
-                   Finex 2024 | Tous droits réservés
+                   Fénix 2024 | Tous droits réservés
                    </div >
                    <div  className=' flex gap-4'>
 <span>Confidentialité</span>

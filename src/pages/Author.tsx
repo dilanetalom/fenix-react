@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import WishesComponent from '../components/WishesComponent'
@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import HeadersecondComponent from '../components/HeadersecondComponent'
 import InputComponent from '../components/InputComponent'
+import axios from 'axios'
 
 
 const Author: React.FC = () => {
@@ -75,11 +76,30 @@ const navigate = useNavigate();
         setCurrentPage(pageNumber);
     };
 
+    const alphabetFrancais = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
     const etude = [
-        { label: 'Niveau d’etude', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
-    ];
+        { label: 'Niveau d’étude', value: '' },
+        ...alphabetFrancais.map(lettre => ({ label: lettre, value: lettre }))
+      ];
+
+    //   const API_URL = 'http://127.0.0.1:8000/api';
+
+    //   const getBooks = async () => {
+    //          try {
+    //              const response = await axios.get(`${API_URL}/getbook`,);
+    //              setBooks(response.data);
+    //          } catch (error) {
+    //              console.error('Erreur lors de la récupération des livres:', error);
+    //              throw error;
+    //          }
+    //      };
+     
+    //      useEffect(()=>{
+    //          getBooks()
+    //      },[])
+     
+
 
     return (
         <>

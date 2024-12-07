@@ -1,7 +1,9 @@
 import React from 'react'
 import asso1 from "../images/asso1.png"
+import { useNavigate } from 'react-router-dom'
 
 const AssociaHeaderSection: React.FC = () => {
+    const navigate = useNavigate();
     return (
         <div className='w-full lg:h-[544px] graybackcolor'>
             <div className='w-full h-full flex lg:flex-row flex-col gap-8 '>
@@ -18,7 +20,7 @@ const AssociaHeaderSection: React.FC = () => {
                      Explorez notre histoire, nos objectifs et les nombreuses activités qui font 
                     de nous un acteur clé du développement culturel. Ensemble, écrivons l’avenir !
                     </p>
-                    <button className='lg:w-[289px] w-[239px] lg:h-[46px] h-[42px] px-[12px] py-[10px] orangebackcolor rounded-full lg:text-[16px] text-[13px]'>
+                    <button onClick={()=>navigate('/contact')} className='lg:w-[289px] w-[239px] lg:h-[46px] h-[42px] px-[12px] py-[10px] orangebackcolor rounded-full lg:text-[16px] text-[13px]'>
                     Contactez-nous dès maintenant
                     </button>
                 </div>

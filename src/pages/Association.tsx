@@ -9,8 +9,10 @@ import young from "../images/young.png"
 import ProjetAssoSection from '../section/ProjetAssoSection'
 import EventAssoSection from '../section/EventAssoSection'
 import DreamAssoSection from '../section/DreamAssoSection'
+import { useNavigate } from 'react-router-dom'
 
 const Association:React.FC = () => {
+  const navigate = useNavigate()
   return (
    <Layouts>
     <div>
@@ -25,7 +27,7 @@ const Association:React.FC = () => {
                 <p className='lg:text-[33px] text-[16px] font-bold'>Une question ou un projet en tête ?</p>
                 <p className='text-[13px]'>Contactez-nous dès maintenant pour en savoir plus
                 ou collaborer avec nous !</p>
-                <button className='lg:w-[181px] w-[157px] h-[46px] px-[25px] py-[12px] orangebackcolor lg:text-[16px] text-[13px] rounded-[5px] text-white font-bold'>Nous Contacter</button>
+                <button onClick={()=>navigate('/contact')} className='lg:w-[181px] w-[157px] h-[46px] px-[25px] py-[12px] orangebackcolor lg:text-[16px] text-[13px] rounded-[5px] text-white font-bold'>Nous Contacter</button>
               </div>
              </div>
         </div>

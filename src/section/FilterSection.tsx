@@ -7,38 +7,64 @@ import InputComponent from '../components/InputComponent'
 
 
 const Filter: React.FC = () => {
+ 
     const auteur = [
-        { label: 'auteur', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
+        // { label: 'auteur', value: '' },
+        { label: 'Engelbert Mveng', value: '1' },
+        { label: 'Chinua Achebe', value: '2' },
+        { label: 'Douala Manga Bell', value: '3' },
+        { label: 'Gustave Flaubert', value: '4' },
+        { label: 'Wole Soyinka', value: '5' },
+        { label: 'Léopold Sédar Senghor', value: '6' },
+        { label: 'Léon Tolstoï', value: '7' },
+        { label: 'Charles Dickens', value: '8' },
+        { label: 'Virginia Woolf', value: '9' },
+        { label: 'James Joyce', value: '10' },
     ];
 
     const format = [
-        { label: 'format', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
+        // { label: 'format', value: '' },
+        { label: 'Physique', value: '1' },
+        { label: 'Numérique', value: '2' }
     ];
     const dispo = [
-        { label: 'Disponibilité', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
+        // { label: 'Disponibilité', value: '' },
+        { label: 'Nouveauté', value: '1' },
+        { label: 'A paraitre', value: '2' },
+        { label: 'Meilleure vente', value: '3' },
+        { label: 'En promotion', value: '4' }
     ];
     const catalogue = [
-        { label: 'Catalogue', value: '1' },
+        // { label: 'Catalogue', value: '1' },
         { label: 'Option 2', value: '2' },
         { label: 'Option 3', value: '3' }
     ];
     const Langue = [
-        { label: 'Langue', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
+        // { label: 'Langue', value: '1' },
+        { label: 'Francais', value: '1' },
+        { label: 'Anglais', value: '2' },
+        { label: 'Espognol', value: '3' },
+        { label: 'Allemand', value: '4' }
     ];
     const etude = [
-        { label: 'Niveau d’etude', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' }
+        // { label: 'Niveau d’etude', value: '' },
+        { label: 'Elève', value: '1' },
+        { label: 'Etudiant', value: '2' },
+        { label: 'Professionnel', value: '3' },
+        { label: 'Chercheur', value: '4' },
+        { label: 'Lecteur occasionnel', value: '5' },
+        { label: 'Lecteur passionné', value: '6' },
     ];
 
+
+    const dates = [
+        // { label: 'Niveau d’etude', value: '' },
+        { label: 'Dernières parutions', value: '1' },
+        { label: 'Cette année', value: '2' },
+        { label: 'Les 5 dernières années', value: '3' },
+        { label: 'Classiques', value: '4' },
+        { label: 'À paraître', value: '5' },
+    ];
 
     return (
         <div className='w-full opacitybackcolor h-auto  py-10'>
@@ -74,11 +100,11 @@ const Filter: React.FC = () => {
                  />
                  <InputComponent
                  options={etude}
-                 first='format'
+                 first='Niveau'
                  />
                  <InputComponent
-                 options={etude}
-                 first='format'
+                 options={dates}
+                 first='Date de publication'
                  />
 
 

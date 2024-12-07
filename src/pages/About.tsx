@@ -92,7 +92,7 @@ const About: React.FC = () => {
 
                                 <div className='lg:w-[55%] flex flex-col gap-5'>
                                     <h2 className='texth2 font-bold'>
-                                        Histoire de la Création de la <span className='graycolor'>Maison d’Édition Finex</span>
+                                        Histoire de la Création de la <span className='graycolor'>Maison d’Édition Fénix</span>
                                     </h2>
                                     <p className='text-[13px]'>Finex a vu le jour en 2017, après des mois de réflexions,
                                         d’hésitations, et beaucoup de café. L’idée n’était pas simplement

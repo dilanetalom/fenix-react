@@ -6,28 +6,51 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { AppDispatch} from '../store'
 import { fetchBooksAsync } from '../features/booksSlice'
+import axios from 'axios'
 
 
+export interface Book {
+    id?: number; // Optionnel pour un nouvel livre
+    title: string;
+    description: string;
+    category: string;
+    language: string;
+    image: File | null; // Pour gérer les fichiers d'image
+    status: string;
+    niveau: string;
+    pub_date: string;
+    price_n: string;
+    price_p: string;
+    user_id: string;
+    author_id: string;
+  }
 const Typebook:React.FC = () => {
     const [filter, setFilter] = useState('nouveaute'); // État pour le filtre
 
     const dispatch = useDispatch<AppDispatch>(); // Typage du dispatch
     // const { books} = useSelector((state: RootState) => state.books);
+     const[books, setBooks]=useState<Book[]>([]);
+
 
     useEffect(() => {+
         dispatch(fetchBooksAsync());
     }, [dispatch]);
 
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
+    const API_URL = 'http://127.0.0.1:8000/api';
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
+ const getBooks = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/getbook`,);
+            setBooks(response.data);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des livres:', error);
+            throw error;
+        }
+    };
 
-    // Appliquez un filtre selon votre logique
-    // const filteredBooks = books.filter(book => book.type === filter);
+    useEffect(()=>{
+        getBooks()
+    },[])
 
     const book = [
         {
@@ -106,11 +129,11 @@ const Typebook:React.FC = () => {
     ]
 
       // Fonction pour filtrer les livres selon le filtre sélectionné
-      const filteredBooks = book.filter((item) => {
+      const filteredBooks = books.filter((item) => {
         if (filter === 'nouveaute') {
-            return item.first === 'NOUVEAUTE';
-        } else if (filter === 'A PARAITRE') {
-            return item.first !== 'NOUVEAUTE';
+            return item.status === 'Nouveauté';
+        } else if (filter === 'A paraitre') {
+            return item.status == 'A paraitre';
         }
         return true; // Pour le cas où le filtre n'est ni 'nouveaute' ni 'A PARAITRE'
     });
@@ -132,12 +155,12 @@ const Typebook:React.FC = () => {
     </div>
         <div className='w-1/2 h-full flex flex-col items-center '>
         <button
-          className={`w-full min-h-[66px] ${filter === 'A PARAITRE' ? 'orangebackcolor' : 'bg-black'} outline-none`}
-          onClick={() => setFilter('A PARAITRE')}
+          className={`w-full min-h-[66px] ${filter === 'A paraitre' ? 'orangebackcolor' : 'bg-black'} outline-none`}
+          onClick={() => setFilter('A paraitre')}
         >
           A PARAITRE
         </button>
-        <div className={` ${filter === 'A PARAITRE' ? 'block' : 'hidden'} outline-none`}>
+        <div className={` ${filter === 'A paraitre' ? 'block' : 'hidden'} outline-none`}>
           <img src={vector} alt="" />
         </div>
         </div>
@@ -147,11 +170,15 @@ const Typebook:React.FC = () => {
                 filteredBooks.map((item)=>{
                     return(
                         <div className='h-[455px]  relative  space-y-3 ' key={item.id}>
-                        <div className={`py-1 px-2 text-[13px] ${item.first === 'NOUVEAUTE' ? 'yellowbackcolor' : 'bg-black text-white'} inline-block rounded-full`}>
-                          {item.first}
+                        <div className={`py-1 px-2 text-[13px] ${item.status === 'Nouveauté' ? 'yellowbackcolor' : 'bg-black text-white'} inline-block rounded-full`}>
+                          {item.status}
                         </div>
                         <div className='lg:h-[302px] w-full'>
-                            <img src={item.image} alt="" className='w-full h-full object-cover object-center' />
+                            <img src={`http://127.0.0.1:8000/images/books/${item.image}`}
+                            alt="" className='w-full h-full object-cover object-center' />
+                        </div>
+                        <div>
+                        {/* ${item.image} */}
                         </div>
                         <p className='text-[16px] font-bold'>
                         {item.title}
