@@ -196,7 +196,7 @@ const Detailbook: React.FC = () => {
                                         <span className='p-2 md:text-[13px]'>
                                             Auteur</span>
                                     </div>
-                                    <span className='border-l border-gray-600 border-opacity-45 w-1/2  font-bold p-2 flex items-center md:text-[13px]'>{books.author.name}</span>
+                                    {/* <span className='border-l border-gray-600 border-opacity-45 w-1/2  font-bold p-2 flex items-center md:text-[13px]'>{books.author.name}</span> */}
                                 </div>
 
 
