@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import WishesComponent from '../components/WishesComponent'
-import author1 from "../images/author1.png"
+// import author1 from "../images/author1.png"
 import fleche1 from "../images/fleche2.png"
 import { Link, useNavigate } from 'react-router-dom'
 
