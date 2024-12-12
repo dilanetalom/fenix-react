@@ -24,49 +24,49 @@ interface Author {
 }
 const Author: React.FC = () => {
 const navigate = useNavigate();
-    const typecards = [
-        {
-            id: 1,
-            image: author1,
-            text: "Radio"
-        },
-        {
-            id: 2,
-            image: author1,
-            text: "Télévision"
-        },
-        {
-            id: 3,
-            image: author1,
-            text: "Rencontre"
-        },
-        {
-            id: 4,
-            image: author1,
-            text: "Rencontre"
-        },
-        {
-            id: 5,
-            image: author1,
-            text: "Rencontre"
-        },
-        {
-            id: 6,
-            image: author1,
-            text: "Rencontre"
-        },
-        {
-            id: 7,
-            image: author1,
-            text: "Rencontre"
-        },
-        {
-            id: 8,
-            image: author1,
-            text: "Rencontre"
-        },
+    // const typecards = [
+    //     {
+    //         id: 1,
+    //         image: author1,
+    //         text: "Radio"
+    //     },
+    //     {
+    //         id: 2,
+    //         image: author1,
+    //         text: "Télévision"
+    //     },
+    //     {
+    //         id: 3,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
+    //     {
+    //         id: 4,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
+    //     {
+    //         id: 5,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
+    //     {
+    //         id: 6,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
+    //     {
+    //         id: 7,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
+    //     {
+    //         id: 8,
+    //         image: author1,
+    //         text: "Rencontre"
+    //     },
 
-    ]
+    // ]
     const goes = () => {
         navigate("/download"); 
     };
