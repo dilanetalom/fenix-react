@@ -163,7 +163,7 @@ const Detailbook: React.FC = () => {
 
     const handleWhatsAppClick = () => {
         const message = `Bonjour! Je suis intéressé par le livre "${books.title}". Prix numerique: ${books.price_n}. Prix physique: ${books.price_p}. Description: ${books.description}.`;
-        const whatsappNumber = '1234567890'; // Remplacez par le numéro WhatsApp
+        const whatsappNumber = '+237 690841749'; // Remplacez par le numéro WhatsApp
         const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
         window.open(url, '_blank'); // Ouvre le lien dans un nouvel onglet
