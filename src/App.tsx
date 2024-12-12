@@ -24,12 +24,12 @@ function App() {
         <Routes>
           {/* <Route  path='/'  element={<Login/>}/> */}
           <Route  path='/'  element={<Accueil/>}/>
-          <Route  path='/detailbook'  element={<Detailbook/>}/>
+          <Route  path='/detailbook/:id'  element={<Detailbook/>}/>
           <Route  path='/agenda'  element={<Agendapage/>}/>
           <Route  path='/menubook'  element={<Bookmenu/>}/>
           <Route  path='/author'  element={<Author/>}/>
           <Route  path='/news'  element={<Newspage/>}/>
-          <Route  path='/detailauthor'  element={<DetailAuthor/>}/>
+          <Route  path='/detailauthor/:id'  element={<DetailAuthor/>}/>
           <Route  path='/contact'  element={<Contact/>}/>
           <Route  path='/download'  element={<DownloadAuthor/>}/>
           <Route  path='/about'  element={<About/>}/>

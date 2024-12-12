@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import WishesComponent from '../components/WishesComponent'
@@ -8,9 +8,20 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import HeadersecondComponent from '../components/HeadersecondComponent'
 import InputComponent from '../components/InputComponent'
+import { API_URL, API_URLE } from '../components/Url'
+import axios from 'axios'
 // import axios from 'axios'
 
-
+interface Author {
+    id: number;
+    name: string;
+    gender: string;
+    country: string;
+    imageauthor: File | null; // ou string si vous voulez stocker l'URL de l'image
+    description: string;
+    date_nais: string; // Format de date, par exemple "YYYY-MM-DD"
+    email: string;
+}
 const Author: React.FC = () => {
 const navigate = useNavigate();
     const typecards = [
@@ -61,15 +72,32 @@ const navigate = useNavigate();
     };
 
 
+
+    const [allAuthors, setAllAuthors] = useState<Author[]>([]);
+    const getauthors = async () => {
+           try {
+               const response = await axios.get(`${API_URL}/allauthor`,);
+               setAllAuthors(response.data);
+           } catch (error) {
+               console.error('Erreur lors de la récupération des livres:', error);
+               throw error;
+           }
+       };
+   
+       useEffect(()=>{
+        getauthors()
+       },[])
+
+
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 4; // Nombre d'articles par page
 
     // Calculer le nombre total de pages
-    const totalPages = Math.ceil(typecards.length / itemsPerPage);
+    const totalPages = Math.ceil(allAuthors.length / itemsPerPage);
 
     // Calculer les articles à afficher sur la page actuelle
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentNews = typecards.slice(startIndex, startIndex + itemsPerPage);
+    const currentNews = allAuthors.slice(startIndex, startIndex + itemsPerPage);
 
     // Gérer le changement de page
     const handlePageChange = (pageNumber: React.SetStateAction<number>) => {
@@ -83,21 +111,10 @@ const navigate = useNavigate();
         ...alphabetFrancais.map(lettre => ({ label: lettre, value: lettre }))
       ];
 
-    //   const API_URL = 'http://127.0.0.1:8000/api';
 
-    //   const getBooks = async () => {
-    //          try {
-    //              const response = await axios.get(`${API_URL}/getbook`,);
-    //              setBooks(response.data);
-    //          } catch (error) {
-    //              console.error('Erreur lors de la récupération des livres:', error);
-    //              throw error;
-    //          }
-    //      };
-     
-    //      useEffect(()=>{
-    //          getBooks()
-    //      },[])
+      const truncateDescription = (description: string, maxLength: number): string => {
+        return description.length > maxLength ? `${description.slice(0, maxLength)}...` : description;
+    };
      
 
 
@@ -123,13 +140,16 @@ const navigate = useNavigate();
                             {
                                 currentNews.map((item) => {
                                     return (
-                                        <Link key={item.id} to="/detailauthor" className=' lg:h-[384px] h-[288px] shadow-md bg-white rounded-[5px]'>
-                                            <div className='h-2/3  w-full'>
-                                                <img src={author1} alt="" className='w-full h-full object-cover object-center rounded-t-[5px]' />
+                                        <Link key={item.id} to={`/detailauthor/${item.id}`} className=' lg:h-[384px] h-[288px] shadow-md bg-white rounded-[5px]'>
+                                            <div className='h-1/2  w-full'>
+                                            <img src={`${API_URLE}/images/authors/${item.imageauthor}`}
+                                                
+                                                alt="" className='w-full h-full object-cover object-center rounded-t-[5px]' />
                                             </div>
-                                            <div className='h-1/3  w-full lg:px-5 px-2 lg:py-8 py-3 flex justify-between gap-3 flex-col'>
-                                                <p className='font-bold lg:text-[16px] text-[13px]'>Hamed Abdel-Samad</p>
-                                                <Link to="" className='lg:text-[13px] text-[11px] font-bold graycolor flex items-center '>
+                                            <div className='h-1/2  w-full lg:px-5 px-2 lg:py-8 py-3 flex justify-between gap-3 flex-col'>
+                                                <p className='font-bold lg:text-[16px] text-[13px]'>{item.name}</p>
+                                                <p className='lg:text-[13px] text-[13px]'>{truncateDescription(item.description, 50)}</p>
+                                                <Link to={`/detailauthor/${item.id}`} className='lg:text-[13px] text-[11px] font-bold graycolor flex items-center '>
                                                 <span>Voir plus</span>
                                                 <span>
                                                     <img src={fleche1} alt="" />

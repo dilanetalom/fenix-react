@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
-import book1 from "../images/book1.png"
 import HeadersecondComponent from '../components/HeadersecondComponent'
 import ModalNews from '../components/NewmodalComponent'
 import { Link } from 'react-router-dom'
 import InputComponent from '../components/InputComponent'
 import axios from 'axios'
+import { API_URL, API_URLE } from '../components/Url'
 
 
 export interface NewsData {
@@ -21,89 +21,90 @@ export interface NewsData {
 }
 const Newspage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const book = [
-        {
-            id: 1,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 2,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 3,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 4,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 5,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 6,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 7,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 8,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
-        {
-            id: 9,
-            first: "NOUVEAUTE",
-            image: book1,
-            title: "JACARANDA",
-            description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
-        },
+    // const book = [
+    //     {
+    //         id: 1,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 2,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 3,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 4,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 5,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 6,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 7,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 8,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
+    //     {
+    //         id: 9,
+    //         first: "NOUVEAUTE",
+    //         image: book1,
+    //         title: "JACARANDA",
+    //         description: " Jacaranda célèbre l’humanité, paradoxale, aimante, vivante"
+    //     },
 
-    ]
+    // ]
     const[news, setNews]=useState<NewsData[]>([]);
-    const API_URL = 'http://127.0.0.1:8000/api';
 
+    
     const getBooks = async () => {
-           try {
-               const response = await axios.get(`${API_URL}/getnews`,);
-               setNews(response.data);
-           } catch (error) {
-               console.error('Erreur lors de la récupération des livres:', error);
-               throw error;
-           }
-       };
-   
-       useEffect(()=>{
-           getBooks()
-       },[])
-   
+        try {
+            const response = await axios.get(`${API_URL}/getnews`);
+            // Filtrer les actualités de type "interne"
+            // const filteredNews = response.data.filter((item:any) => item.frome === "interne");
+            setNews(response.data);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des actualités:', error);
+            throw error;
+        }
+    };
+
+    useEffect(() => {
+        getBooks();
+    }, []);
 
 
 
@@ -112,7 +113,7 @@ const Newspage: React.FC = () => {
     const itemsPerPage = 3; // Nombre d'articles par page
 
     // Calculer le nombre total de pages
-    const totalPages = Math.ceil(book.length / itemsPerPage);
+    const totalPages = Math.ceil(news.length / itemsPerPage);
 
     // Calculer les articles à afficher sur la page actuelle
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -135,10 +136,16 @@ const Newspage: React.FC = () => {
         setSelectedDate(event.target.value);
     };
 
+    const[newst, setNewst]=useState<NewsData|null>(null);
+    const modalopens = (newt:NewsData)=>{
+        setNewst(newt)
+        setIsModalOpen(true)
+    }
+
     return (
         <>
             <Layouts>
-                <ModalNews isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                <ModalNews isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} news={newst} />
                 <HeadersecondComponent title='  Découvrez
                                 nos actualités'/>
                 <div className='py-20 w-full h-auto opacitybackcolor flex flex-col gap-28 '>
@@ -175,9 +182,9 @@ const Newspage: React.FC = () => {
                         {
                             currentNews.map((item) => {
                                 return (
-                                    <Link key={item.id} to="" className=' md:h-[416px] h-[500px] shadow-xl bg-white rounded-[5px]' onClick={() => setIsModalOpen(true)}>
+                                    <Link key={item.id}  to="" className=' md:h-[416px] h-[500px] shadow-xl bg-white rounded-[5px]' onClick={()=>modalopens(item)}>
                                         <div className='h-1/2 w-full'>
-                                            <img src={`http://127.0.0.1:8000/images/news/${item.image}`}
+                                            <img src={`${API_URLE}/images/news/${item.image}`}
                                             alt="" className='w-full h-full object-cover object-center' />
                                         </div>
                                         <div className='h-1/2 p-6 space-y-4'>
@@ -194,6 +201,7 @@ const Newspage: React.FC = () => {
                             })
                         }
                     </div>
+
                     <div className='flex w-full justify-center mt-5'>
                         {Array.from({ length: totalPages }, (_, index) => (
                             <button
@@ -205,6 +213,7 @@ const Newspage: React.FC = () => {
                             </button>
                         ))}
                     </div>
+
                 </div>
                 <div className='w-full h-auto bg-white '>
                     <div className='h-full w-full container  flex justify-center items-center mx-auto py-24'>
@@ -214,7 +223,7 @@ const Newspage: React.FC = () => {
                                 <p className='text-[13px] '>Recevez nos dernières actualités directement dans votre boîte mail</p>
                             </div>
                             <div className='lg:w-1/2 h-full relative flex items-center '>
-                                <input type="text" placeholder='Votre e-mail' className='w-full h-[45px] rounded-full orangebackcolor border-[1px] md:text-[13px] text-[11px] outline-none text-white px-3' />
+                                <input type="text" placeholder='Votre e-mail' className='w-full h-[45px] rounded-full orangebackcolor border-[1px] md:text-[13px] text-[11px] outline-none text-white px-3 placeholder-white' />
                                 <button className='absolute bg-black right-2 lg:top-8 top-1 h-[36px] w-[89px] rounded-full md:text-[13px] text-[11px]'>ENVOYEZ</button>
                             </div>
                         </div>

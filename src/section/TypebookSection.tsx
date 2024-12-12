@@ -7,7 +7,19 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch} from '../store'
 import { fetchBooksAsync } from '../features/booksSlice'
 import axios from 'axios'
+import { API_URL, API_URLE } from '../components/Url'
 
+
+// interface Author {
+//   id: number;
+//   name: string;
+//   gender: string;
+//   country: string;
+//   imageauthor: File | null; // ou string si vous voulez stocker l'URL de l'image
+//   description: string;
+//   date_nais: string; // Format de date, par exemple "YYYY-MM-DD"
+//   email: string;
+// }
 
 export interface Book {
     id?: number; // Optionnel pour un nouvel livre
@@ -23,20 +35,20 @@ export interface Book {
     price_p: string;
     user_id: string;
     author_id: string;
+    // author:Author
   }
 const Typebook:React.FC = () => {
     const [filter, setFilter] = useState('nouveaute'); // État pour le filtre
 
     const dispatch = useDispatch<AppDispatch>(); // Typage du dispatch
     // const { books} = useSelector((state: RootState) => state.books);
-     const[books, setBooks]=useState<Book[]>([]);
+     const [books, setBooks] = useState<Book[]>([]);
 
 
     useEffect(() => {+
         dispatch(fetchBooksAsync());
     }, [dispatch]);
 
-    const API_URL = 'http://127.0.0.1:8000/api';
 
  const getBooks = async () => {
         try {
@@ -167,14 +179,14 @@ const Typebook:React.FC = () => {
         </div>
         <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 justify-center mx-auto container md:py-20 '>
             {
-                filteredBooks.map((item)=>{
+                filteredBooks.map((item:any)=>{
                     return(
-                        <div className='h-[455px]  relative  space-y-3 ' key={item.id}>
+                        <div className='h-[455px]  relative  space-y-3 cursor-pointer ' onClick={()=>navigate(`detailbook/${item.id}`)} key={item.id} >
                         <div className={`py-1 px-2 text-[13px] ${item.status === 'Nouveauté' ? 'yellowbackcolor' : 'bg-black text-white'} inline-block rounded-full`}>
                           {item.status}
                         </div>
                         <div className='lg:h-[302px] w-full'>
-                            <img src={`http://127.0.0.1:8000/images/books/${item.image}`}
+                            <img src={`${API_URLE}/images/books/${item.image}`}
                             alt="" className='w-full h-full object-cover object-center' />
                         </div>
                         <div>
@@ -186,7 +198,7 @@ const Typebook:React.FC = () => {
                         <p className='text-[11px]'>
                         {item.description}
                         </p>
-                        <Link to="" className='text-[11px] orangecolor font-bold'>Voir plus</Link>
+                        <Link to={`detailbook/${item.id}`} className='text-[11px] orangecolor font-bold'>Voir plus</Link>
                     </div>
                     )
                 })
@@ -194,7 +206,7 @@ const Typebook:React.FC = () => {
    
         </div>  
         <div className='w-full flex justify-center md:pb-28 pb-10'> 
-                      <button onClick={()=>navigate('/menubook')} className='flex items-center text-[13px] lg:text-[16px] graycolor lg:w-[360.18px] w-[303px] px-[12px] py-[10px] rounded-[5px] border-[1px] border-[007F99] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
+                      <button onClick={()=>navigate('/menubook')} className='flex items-center justify-center text-[13px] lg:text-[16px] graycolor lg:w-[360.18px] w-[303px] px-[12px] py-[10px] rounded-[5px] border-[1px] border-[#007F99] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
                         <span>
                             <img src={right} alt="" />
                         </span>

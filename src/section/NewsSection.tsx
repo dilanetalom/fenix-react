@@ -1,62 +1,86 @@
-import React, { useState } from 'react'
-import person3 from '../images/new1.png'
+import React, { useEffect, useState } from 'react'
+// import person3 from '../images/new1.png'
 import Cardnews from '../components/CardnewsComponent'
 import right from "../images/right.png"
 import { useNavigate } from 'react-router-dom'
+import { NewsData } from '../pages/Newspage'
+import { API_URL, API_URLE } from '../components/Url'
+import axios from 'axios'
 
 
 const News: React.FC = () => {
     const navigate = useNavigate();
-    const news = [
-        {
-            id: 1,
-            imagecard: person3,     // Type pour l'image
-            title: "03/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",
-            butontext: "EN SAVOIR PLUS"
+    // const news = [
+    //     {
+    //         id: 1,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "03/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-        {
-            id: 2,
-            imagecard: person3,     // Type pour l'image
-            title: "03/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
-            butontext: "EN SAVOIR PLUS"
+    //     },
+    //     {
+    //         id: 2,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "03/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-        {
-            id: 3,
-            imagecard: person3,     // Type pour l'image
-            title: "03/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
-            butontext: "EN SAVOIR PLUS"
+    //     },
+    //     {
+    //         id: 3,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "03/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-        {
-            id: 4,
-            imagecard: person3,     // Type pour l'image
-            title: "09/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",
-            butontext: "EN SAVOIR PLUS"
+    //     },
+    //     {
+    //         id: 4,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "09/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-        {
-            id: 5,
-            imagecard: person3,     // Type pour l'image
-            title: "10/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
-            butontext: "EN SAVOIR PLUS"
+    //     },
+    //     {
+    //         id: 5,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "10/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-        {
-            id: 6,
-            imagecard: person3,     // Type pour l'image
-            title: "14/10/2024",         // Type pour le titre
-            description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
-            butontext: "EN SAVOIR PLUS"
+    //     },
+    //     {
+    //         id: 6,
+    //         imagecard: person3,     // Type pour l'image
+    //         title: "14/10/2024",         // Type pour le titre
+    //         description: "Yasmina Reza sera à la Librairie Le Neuvième Pays à Paris pour rencontrer ses lecteurs et dédicacer son livre, Récits de certains faits",   // Type pour la description
+    //         butontext: "EN SAVOIR PLUS"
 
-        },
-    ]
+    //     },
+    // ]
+
+
+    const[news, setNews]=useState<NewsData[]>([]);
+
+    
+    const getBooks = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/getnews`);
+            // Filtrer les actualités de type "interne"
+            // const filteredNews = response.data.filter((item:any) => item.frome === "interne");
+            setNews(response.data);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des actualités:', error);
+            throw error;
+        }
+    };
+
+    useEffect(() => {
+        getBooks();
+    }, []);
+
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3; // Nombre d'articles par page
@@ -81,10 +105,9 @@ const News: React.FC = () => {
                 {currentNews.map((item) => (
                     <Cardnews 
                         key={item.id}
-                        imagecard={item.imagecard}
-                        title={item.title}
+                        imagecard={`${API_URLE}/images/news/${item.image}`}
+                        title={item.newsdate}
                         description={item.description}
-                        butontext={item.butontext}
                     />
                 ))}
                 </div>
@@ -101,7 +124,7 @@ const News: React.FC = () => {
                     </div>
                 
                 <div className='flex justify-center w-full'>
-                    <button onClick={() => navigate("/news")} className='px-[12px] py-[10px] border-[1px] border-[007F99] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white  rounded-[5px] graycolor flex items-center'>
+                    <button onClick={() => navigate("/news")} className='px-[12px] py-[10px] border-[1px] border-[#007F99] transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white  rounded-[5px] graycolor flex items-center'>
                         <img src={right} alt="" />
                         <span>DÉCOUVRIR NOS ACTUALITÉS</span>
                     </button>

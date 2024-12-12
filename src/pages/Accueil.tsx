@@ -8,7 +8,7 @@ import Header from '../section/HeaderSection'
 import Filter from '../section/FilterSection'
 import Whychoice from '../section/WhychoiceSection'
 import Typebook from '../section/TypebookSection'
-import Agendasection from '../section/Agendasection'
+// import Agendasection from '../section/Agendasection'
 import News from '../section/NewsSection'
 import CustomSlider from '../section/BestbookSection'
 
@@ -21,7 +21,7 @@ const Accueil: React.FC = () => {
                     <Filter/>
                     <Whychoice/>
                     <Typebook/>
-                    <Agendasection/>
+                    {/* <Agendasection/> */}
                     <CustomSlider/>
                     <News/>
                     <Newcostumer/>
