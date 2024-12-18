@@ -102,12 +102,7 @@ const Navbar: React.FC = () => {
         </nav>
 
         {isOpen && (
-          <nav
-            className={`
-              nav-links flex flex-col items-center mt-2 z-999 w-full h-screen md:hidden absolute bg-white
-              transition duration-300 ease-in-out pt-8 gap-4
-            `}
-          >
+          <nav className={`nav-links ${isOpen ? 'show' : ''} flex flex-col items-center  mt-2 z-999 w-full h-screen md:hidden absolute bg-white transition-all duration-500 ease-in-out pt-8 gap-4`}>
             <button onClick={toggleNavbar} className="absolute top-4 right-4">
               ✖ {/* Crois pour fermer */}
             </button>
@@ -120,8 +115,16 @@ const Navbar: React.FC = () => {
                 {item.text}
               </Link>
             ))}
+            <button onClick={() => navigate("/download")} className='h-[44px]  px-5 rounded-md graybackcolor flex items-center justify-center gap-2 ml-5 '>
+              <span>
+                <img src={bookicon} alt="Book Icon" className='w-4' />
+              </span>
+              <span className='text-[11px] text-white font-[400]'>Publiez Vos Livres</span>
+            </button>
           </nav>
         )}
+
+
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-interface Option {
+export interface Option {
   label: string;
   value: string;
 }
@@ -8,9 +8,10 @@ interface Option {
 interface PropsInput {
   options: Option[];
   first: string;
+  onSelect: (option: Option | undefined) => void; // Callback prop
 }
 
-const InputComponent: React.FC<PropsInput> = ({ options, first }) => {
+const InputComponent: React.FC<PropsInput> = ({ options, first, onSelect }) => {
   const [selectedOption, setSelectedOption] = useState<Option>();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,17 +19,18 @@ const InputComponent: React.FC<PropsInput> = ({ options, first }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target   as Node)) {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option: Option)   => {
+  const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
     setSearchTerm(''); // Reset search term on selection
+    onSelect(option); // Call the onSelect prop with the selected option
   };
 
   const filteredOptions = options.filter((option) =>
@@ -46,15 +48,13 @@ const InputComponent: React.FC<PropsInput> = ({ options, first }) => {
     document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener('mousedown',   
- handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);   
-
+  }, [isOpen]);
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <div
         onClick={toggleDropdown}
         className="border border-gray-300 rounded-lg p-2 h-[58px] cursor-pointer bg-white flex justify-between items-center"

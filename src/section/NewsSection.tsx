@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { NewsData } from '../pages/Newspage'
 import { API_URL, API_URLE } from '../components/Url'
 import axios from 'axios'
+import AOS from 'aos'; // Assurez-vous d'importer AOS
+import 'aos/dist/aos.css';
 
 
 const News: React.FC = () => {
@@ -97,18 +99,32 @@ const News: React.FC = () => {
         setCurrentPage(pageNumber);
     };
 
+    useEffect(() => {
+        AOS.init({
+            duration: 700, // Durée de l'animation
+            easing: 'ease-in-out', // Type d'accélération
+        });
+    }, []);
+
     return (
         <div className='w-full h-auto opacitybackcolor md:py-20 py-10'>
-            <div className='container py-10 flex flex-col mx-auto gap-10'>
-                <h2 className='texth2 font-bold'>Actualités</h2>
-                <div className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5'>
-                {currentNews.map((item) => (
+            <div className='container md:py-10 flex flex-col mx-auto gap-10'>
+                <h2 className='texth2 font-bold'
+                data-aos="fade-right"
+                >Actualités</h2>
+                <div className='h-auto grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5'>
+                {currentNews.map((item, index) => (
+                         <div 
+                         key={item.id} 
+                         data-aos="fade-up" // Animation de montée
+                         data-aos-delay={index * 100} // Délai progressif
+                     >
                     <Cardnews 
-                        key={item.id}
                         imagecard={`${API_URLE}/images/news/${item.image}`}
                         title={item.newsdate}
                         description={item.description}
                     />
+                    </div>
                 ))}
                 </div>
                     <div className='flex w-full justify-center mt-5'>

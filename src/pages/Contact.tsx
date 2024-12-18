@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState, useEffect,useRef } from 'react';
 import Layouts from '../partials/Layouts'
 import Newsletter from '../section/NewsletterSection'
 import contact from "../images/contact.png"
@@ -12,11 +12,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Contact: React.FC = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Fait défiler vers le haut de la page
+    }, []); //
     const phoneNumber = '690841749'; // Remplacez avec votre numéro
-    const message = encodeURIComponent('Bonjour, j\'ai besoin d\'aide !'); // Message pré-rempli
+    const messages = encodeURIComponent('Bonjour, j\'ai besoin d\'aide !'); // Message pré-rempli
 
     const handleClick = () => {
-        const url = `https://wa.me/${phoneNumber}?text=${message}`;
+        const url = `https://wa.me/${phoneNumber}?text=${messages}`;
         window.open(url, '_blank'); // Ouvre le lien dans un nouvel onglet
     };
 
@@ -28,12 +31,12 @@ const Contact: React.FC = () => {
     };
 
 
-    const email = 'hello@kiriaa.gmail.com'; // Remplacez par l'adresse e-mail souhaitée
+    const emails = 'hello@kiriaa.gmail.com'; // Remplacez par l'adresse e-mail souhaitée
     const subject = encodeURIComponent('Bonjour'); // Sujet de l'e-mail
     const body = encodeURIComponent('J\'ai besoin d\'aide !'); // Corps du message
 
     const handleClicke = () => {
-        const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+        const mailtoLink = `mailto:${emails}?subject=${subject}&body=${body}`;
         window.location.href = mailtoLink; // Ouvre le client de messagerie par défaut
     };
 
@@ -67,35 +70,33 @@ const Contact: React.FC = () => {
 
 
     const [isLoading, setIsLoading] = useState(false);
+    const formRef = useRef<HTMLFormElement>(null); // Utilisez une seule ref pour le formulaire
 
-    const formRef = useRef<HTMLFormElement>(null);
-
-      const sendEmail = (e:React.FormEvent) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsLoading(true);
-        if (formRef.current) {
-            console.log(formRef.current);
-            
-        emailjs.sendForm(
-            'service_t1o4iw5',
-            'template_41o9ic2',
-             formRef.current,
-            'OpjM0V3NsMzBgISBV'
-          )
-            .then(() => {
-              toast.success('Votre message a été envoyé avec succès !');
-            })
-            .catch(() => {
-              toast.error('Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.');
-            })
-            .finally(() => {
-              setIsLoading(false);
-              formRef.current?.reset();
-            });
-    
-        }
-      };
+        setIsLoading(true)
 
+        // Vérifiez si la référence du formulaire est définie
+        if (formRef.current) {
+            emailjs.sendForm(
+                'service_t1o4iw5',    // Remplacez par votre Service ID EmailJS
+                'template_41o9ic2',   // Remplacez par votre Template ID EmailJS
+                formRef.current,       // Utilisez la référence du formulaire
+                'OpjM0V3NsMzBgISBV'   // Remplacez par votre User ID EmailJS
+            )
+            .then((result) => {
+                console.log(result.text);
+                setIsLoading(false)
+                toast.success('Message envoyé avec succès !');
+                formRef.current?.reset();
+            }, (error) => {
+                console.log(error.text);
+                alert("Erreur lors de l'envoi du message.");
+            });
+        }
+    };
+
+  
       
 
 
@@ -133,17 +134,18 @@ const Contact: React.FC = () => {
                                 <h2 className='texth2 font-bold'>ECRIVEZ-VOUS</h2>
                                 <div className='h-[3px] w-[98px] orangebackcolor'></div>
                             </div>
-                            <form  ref={formRef} onSubmit={()=>sendEmail}action="" className='flex flex-col gap-3'>
+                            <form  ref={formRef} onSubmit={sendEmail} action="" className='flex flex-col gap-3'>
                                 <input type="text"
                                     name="email"
+                                    required
                                     className='w-full h-[63px] rounded-[10px] border-[1px] outline-none px-3' placeholder='Votre adresse email *' />
-                                <input type="text"
+                                <input type="number"
                                     name="phone"
-                                
+                                 
                                     className='w-full h-[63px] rounded-[10px] border-[1px] outline-none px-3' placeholder='Votre numéro de téléphone *' />
                                 <textarea 
                                     name="message"
-                                 
+                                    required
                                     id="" className='h-[231px] w-full rounded-[10px] border-[1px] outline-none p-3' placeholder='Votre message *'>
                                 </textarea>
                                 <button type='submit' disabled={isLoading} className='w-full h-[63px]  rounded-[10px] orangebackcolor text-white font-bold '>

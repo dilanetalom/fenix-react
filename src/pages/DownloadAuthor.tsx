@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layouts from '../partials/Layouts'
 import book1 from "../images/book1.png"
 
 const DownloadAuthor: React.FC = () => {
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Fait défiler vers le haut de la page
+    }, []); //
+    
     const handleClick = () => {
         const input = document.getElementById('ficheInput') as HTMLInputElement;
         if (input) {
@@ -61,13 +66,13 @@ const DownloadAuthor: React.FC = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                                 <div className='flex flex-col gap-5'>
-                                    <label htmlFor="" className='graycolor font-bold'>Nom complet <span className='text-red-600'>*</span></label>
+                                    <label htmlFor="" className='graycolor font-bold'>Numéro de téléphone  <span className='text-red-600'>*</span></label>
                                     <input
                                         placeholder='Cameroun'
                                         type="text" className='h-[59px] w-full rounded-[5px] border px-3  border-gray-600 outline-none' />
                                 </div>
-                                <div className='flex flex-col gap-5'>
-                                    <label htmlFor="" className='graycolor font-bold'>Adresse e-mail  <span className='text-red-600'>*</span></label>
+                                <div className='flex flex-col gap-[43px]'>
+                                    <label htmlFor="" className='graycolor font-bold'>  <span className='text-red-600'></span></label>
                                     <input
                                         placeholder='+237'
                                         type="text" className='h-[59px] w-full rounded-[5px] border px-3 border-gray-600 outline-none' />
@@ -113,12 +118,16 @@ const DownloadAuthor: React.FC = () => {
                                 </div>
                                 <div className='flex flex-col gap-5'>
                                     <label htmlFor="" className='graycolor font-bold'>Linkedln  <span className='text-red-600'>*</span></label>
-                                    <input type="text" className='h-[59px] w-full rounded-[5px] border px-3 border-gray-600 outline-none' />
+                                    <input 
+                                    placeholder='Linkedln ...'
+                                    type="text" className='h-[59px] w-full rounded-[5px] border px-3 border-gray-600 outline-none' />
                                 </div>
 
                                 <div className='flex flex-col gap-5'>
                                     <label htmlFor="" className='graycolor font-bold'>Facebook  <span className='text-red-600'>*</span></label>
-                                    <input type="text" className='h-[59px] w-full rounded-[5px] border px-3 border-gray-600 outline-none' />
+                                    <input
+                                    placeholder='Facebook ...'
+                                    type="text" className='h-[59px] w-full rounded-[5px] border px-3 border-gray-600 outline-none' />
                                 </div>
 
                                 <div className='flex flex-col gap-5'>
@@ -136,7 +145,9 @@ const DownloadAuthor: React.FC = () => {
 
                                 <div className='flex flex-col gap-5'>
                                     <label htmlFor="" className='graycolor font-bold'>Pourquoi souhaites tu rejoindre Finex ?  <span className='text-red-600'>*</span></label>
-                                    <textarea name="" id="" className=' p-4 h-[182px] w-full rounded-[5px] border px-3 border-gray-600 outline-none'></textarea>
+                                    <textarea
+                                    placeholder='Une description ...'
+                                    name="" id="" className=' p-4 h-[182px] w-full rounded-[5px] border px-3 border-gray-600 outline-none'></textarea>
                                 </div>
 
 

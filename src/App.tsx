@@ -15,9 +15,14 @@ import DownloadAuthor from './pages/DownloadAuthor';
 import About from './pages/About';
 import Booksave from './pages/Booksave';
 import Association from './pages/Association';
+import AOS from "aos";
+import { useEffect } from 'react';
 
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
    <>
      <Router>

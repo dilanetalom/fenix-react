@@ -61,7 +61,10 @@ const ActivityAssoSection: React.FC = () => {
                         {
                             datas.map((item) => {
                                 return (
-                                    <div key={item.id} className='flex flex-row gap-5 items-center'>
+                                    <div key={item.id} className='flex flex-row gap-5 items-center'
+                                     data-aos="fade-right"
+                                      data-aos-duration="1000"
+                                    >
                                         <div className='w-[52px] h-[45px] orangebackcolor flex justify-center items-center'>
                                             <img src={item.icon} alt="" />
                                         </div>
@@ -73,7 +76,10 @@ const ActivityAssoSection: React.FC = () => {
                             })
                         }
                     </div>
-                    <div className="lg:w-1/2 h-full md:block hidden">
+                    <div className="lg:w-1/2 h-full md:block hidden"
+                     data-aos="zoom-in"
+                      data-aos-duration="1000"
+                    >
                         <video className="w-full h-full rounded-lg shadow-lg" controls>
 
                         </video>

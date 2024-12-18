@@ -9,7 +9,9 @@ interface propsTitleAssociation {
 
 const AssociationComponent:React.FC <propsTitleAssociation>= ({title, description}) => {
     return (
-        <div className=' w-full h-auto flex flex-col justify-center items-center' >
+        <div className=' w-full h-auto flex flex-col justify-center items-center'
+        data-aos="zoom-in" // Animation de zoom
+        >
             <p className='text-[11px] font-bold orangecolor'>{title}</p>
             <h2 className="texth2 font-bold">{description}</h2>
         </div>

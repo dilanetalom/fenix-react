@@ -7,6 +7,9 @@ interface modalprops {
 
 }
 const Paiement: React.FC<modalprops> = ({ isOpen, onClose }) => {
+
+
+    
     return (
         <>
             {isOpen && (

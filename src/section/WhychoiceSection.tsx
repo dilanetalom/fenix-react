@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Cardchoice from '../components/CardchoiceComponent'
 import bookicon from "../images/bookicon.png"
 import { useNavigate } from 'react-router-dom';
 import choice1 from "../images/choice1.png"
 import choice2 from "../images/choice2.png"
 import choice3 from "../images/choice3.png"
+
 
 
 const Whychoice:React.FC = () => {
@@ -32,15 +35,30 @@ const Whychoice:React.FC = () => {
     },
   ]
    const navigate = useNavigate();
+
+   useEffect(() => {
+    AOS.init({
+        duration: 1000, // Durée de l'animation
+        easing: 'ease-in-out', // Type d'accélération
+    });
+}, []);
+
   return (
     <div className='w-full h-auto py-16'>
        <div className=' w-full container py-10 flex flex-col mx-auto  gap-20'> 
-           <h2 className='texth2 font-bold text-center'>Pourquoi Nous Choisir ?</h2>
+           <h2 className='texth2 font-bold text-center'
+           data-aos="zoom-in"
+           >Pourquoi Nous Choisir ?</h2>
            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8'>
           
             {
-              choices.map((item)=>{
+              choices.map((item, index)=>{
                return(
+                <div 
+                key={item.id} 
+                data-aos="zoom-in" // Animation de zoom
+                data-aos-delay={index * 200} // Délai pour chaque élément
+            >
                 <Cardchoice
                 key={item.id}
                 image={item.image}
@@ -48,12 +66,15 @@ const Whychoice:React.FC = () => {
                 color={item.color}
                 description={item.description}
                 />
+                </div>
                )
               })
             }
            </div>
            <div className='flex justify-center'>
-           <button onClick={()=>navigate("/download")} className='h-[44px]  px-5 rounded-[5px] graybackcolor  gap-2 flex items-center'>
+           <button onClick={()=>navigate("/download")} className='h-[44px]  px-5 rounded-[5px] graybackcolor  gap-2 flex items-center'
+            data-aos="zoom-in"
+            >
                     <span>
                         <img src={bookicon} alt="" />
                     </span>

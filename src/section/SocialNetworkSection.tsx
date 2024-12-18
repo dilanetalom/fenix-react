@@ -7,17 +7,25 @@ const SocialNetwork : React.FC= () => {
   return (
     <div className="w-full h-full py-10">
        <div className='container flex flex-col gap-20'>
-            <h2 className='texth2 font-bold text-center'>Réseaux sociaux</h2>
+            <h2 className='texth2 font-bold text-center'
+                data-aos="zoom-in" // Animation de zoom
+            >Réseaux sociaux</h2>
             <div className='flex justify-around'>
-               <div className='flex flex-col items-center'>
+               <div className='flex flex-col items-center'
+                   data-aos="fade-right" // Animation de zoom
+               >
                 <img src={social3} alt="" className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]' />
                 <p className='font-bold text-gray-500'>Facebook</p>
                </div>
-               <div  className='flex flex-col items-center'>
+               <div  className='flex flex-col items-center'
+                   data-aos="fade-down" // Animation de zoom
+               >
                 <img src={social1} alt="" className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]' />
                 <p  className='font-bold text-gray-500'>Tweeter</p>
                </div>
-               <div  className='flex flex-col items-center'>
+               <div  className='flex flex-col items-center'
+                   data-aos="fade-left" // Animation de zoom
+               >
                 <img src={social2} alt="" className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]'/>
                 <p  className='font-bold text-gray-500'>Linkeldin</p>
                </div>

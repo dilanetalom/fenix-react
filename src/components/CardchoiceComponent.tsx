@@ -7,7 +7,9 @@ interface modalprops {
 }
 const Cardchoice:React.FC <modalprops> = ({ image, title,description,color}) => {
   return (
-    <div className=' md:h-[355px] pt-3 h-[355px]  rounded-t-xl shadow-md' style={{ backgroundColor: color }}>
+    <div 
+    
+    className=' md:h-[355px] pt-3 h-[355px]  rounded-t-xl shadow-md' style={{ backgroundColor: color }}>
        <div className='w-full h-full bg-white rounded-t-md p-5'  >
           <div className='h-1/3'>
             <img src={image} alt="" />

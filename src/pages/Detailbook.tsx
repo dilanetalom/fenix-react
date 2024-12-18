@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Layouts from '../partials/Layouts'
 import choice1 from "../images/agenda.png"
 import Newsletter from '../section/NewsletterSection'
-// import book1 from "../images/book1.png"
 import down from "../images/down.png"
 import what from "../images/what.png"
 import al from "../images/al.png"
@@ -16,6 +15,7 @@ import Downloadmodal from '../components/Modaldownload'
 import axios from 'axios'
 import { API_URL, API_URLE } from '../components/Url'
 import LoadingModal from '../section/LoadingModal'
+
 // import { Book } from '../section/TypebookSection'
 
 
@@ -52,6 +52,11 @@ export interface Book {
 
 const Detailbook: React.FC = () => {
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Fait défiler vers le haut de la page
+    }, []); //
+    
     const [text, setText] = useState("detail")
     const [texts, setTexts] = useState("meme")
     const navigate = useNavigate();
@@ -169,6 +174,21 @@ const Detailbook: React.FC = () => {
         window.open(url, '_blank'); // Ouvre le lien dans un nouvel onglet
     };
 
+    // const [selectedCategory, setSelectedCategory] = useState('');
+
+    // const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setSelectedCategory(event.target.value);
+    // };
+    // const isButtonDisabled = selectedCategory.trim() === '';
+
+
+
+
+    // doawnload book
+
+
+
+    
 
     return (
         <>
@@ -184,7 +204,7 @@ const Detailbook: React.FC = () => {
 
                                 alt="" className='h-full w-full object-cover object-center' />
                         </div>
-                        <div className='space-y-6 '>
+                        <div className='space-y-[15px] '>
                             <div className='px-[5px] py-[1px] yellowbackcolor inline-block rounded-full '>{books.status}</div>
                             <h1 className='texth1'>{books.title}</h1>
                             <div className='flex lg:flex-row   text-[16px] gap-3'>
@@ -226,8 +246,11 @@ const Detailbook: React.FC = () => {
                             <p className='text-[13px] font-bold'>Commander selon votre choix de format</p>
                             <div className='lg:h-[93px] w-full flex lg:flex-row flex-col   md:gap-10 gap-5'>
                                 <div className='w-full h-full flex flex-col gap-2'>
-                                    <div className='flex gap-2 '>
-                                        <input type="radio" className='w-6 cursor-pointer' id='phy' name='cat' />
+                                    <div className='flex items-center gap-2 '>
+                                        <input 
+                                        type="radio" 
+                                        value='physique'
+                                        className='w-6 h-6 cursor-pointer' id='phy' name='cat' />
                                         <label htmlFor='phy' className='flex text-[16px] cursor-pointer'>
                                             <div className='border border-gray-600 yellowbackcolor  w-[252px] flex justify-between'>
                                                 <div className='flex items-center gap-2 px-2'>
@@ -240,10 +263,13 @@ const Detailbook: React.FC = () => {
                                         </label>
                                     </div>
 
-                                    <div className='flex gap-2 '>
-                                        <input type="radio" className='w-6 cursor-pointer' id='cat' name='cat' />
+                                    <div className='flex gap-2 items-center'>
+                                        <input
+                                         type="radio" 
+                                         value='numerique'
+                                         className='w-6 h-6 cursor-pointer' id='cat' name='cat' />
                                         <div className='flex text-[16px] text-white cursor-' >
-                                            <label htmlFor='cat' className=' pointer border border-gray-600 bg-[#808080] w-[252px] flex justify-between'>
+                                            <label htmlFor='cat' className=' cursor-pointer border border-gray-600 bg-[#808080] w-[252px] flex justify-between'>
                                                 <div className='flex items-center gap-2 px-2'>
                                                     <img src={phone} alt="" />
                                                     <span className='p-2'>Numerique</span>
@@ -268,8 +294,8 @@ const Detailbook: React.FC = () => {
                             </div>
 
                             <div className='flex lg:flex-row flex-col lg:justify-between  gap-9 text-white'>
-                                <div className='flex w-full ' onClick={handleWhatsAppClick}>
-                                    <button className='md:w-[245px] w-[321.51px] h-[42px] bg-[#29A71A] font-bold'>Commande via Whatsapp</button>
+                                <div className='flex w-full ' onClick={handleWhatsAppClick} >
+                                    <button className='md:w-[245px] w-[321.51px] h-[42px] bg-[#29A71A] font-bold' >Commande via Whatsapp</button>
                                     <button className='h-[42px] border border-[#29A71A] w-[42px] flex justify-center items-center bg-white'>
                                         <img src={what} alt="" />
                                     </button>
@@ -382,7 +408,9 @@ const Detailbook: React.FC = () => {
 
                     </div>
                 </div>
-                <Downloadmodal isOpen={isModalOpens} onCloses={() => setIsModalOpens(false)} />
+                <Downloadmodal isOpen={isModalOpens} onCloses={() => setIsModalOpens(false)} 
+                    currentBooks={books}
+                    />
                 <Newsletter />
             </Layouts>
         </>

@@ -54,11 +54,18 @@ const EventAssoSection:React.FC = () => {
             return (
             <SwiperSlide key={item.id} className=''>
          <div className='w-full flex flex-col gap-5 lg:gap-0 justify-end overflow-x-hidden container'>
-            <div className='flex flex-col lg:px-20 transform lg:-translate-x-36  '>
-                <div className='w-[467px] h-[351px] transform translate-x-10 hidden lg:block'>
-                    <img src={cam1} alt="" className='w-full h-full object-cover object-center rounded-[5px]' />
+            <div className='flex flex-col lg:px-20 transform lg:-translate-x-36'
+               data-aos="fade-right" 
+               data-aos-duration="1000"
+            >
+                <div className='w-[467px] h-[351px] transform translate-x-10 hidden lg:block overflow-hidden'
+             
+                >
+                    <img src={cam1} alt="" className='w-full h-full object-cover object-center rounded-[5px] hover:scale-125 duration-100 cursor-pointer' />
                 </div>
-                <div className='lg:w-[467px] w-full lg:h-[351px] shadow-xl bg-white rounded-[5px] lg:transform lg:translate-x-80 lg:-translate-y-36 lg:p-10 p-5 flex flex-col justify-between gap-3 lg:gap-0'>
+                <div className='lg:w-[467px] w-full lg:h-[351px] shadow-xl bg-white rounded-[5px] lg:transform lg:translate-x-80 lg:-translate-y-36 lg:p-10 p-5 flex flex-col justify-between gap-3 lg:gap-0 cursor-pointer'
+          
+                >
                     <div className='text-[13px] yellowbackcolor px-[10px] py-[5px] w-[82px] h-[28px] rounded-full flex items-center'>Concours</div>
                     <p className='font-bold lg:text-[19px] text-[16px]'>Concours d’Écriture Créative 2024</p>
                     <p className='text-[13px]'>Participez à notre concours en soumettant une nouvelle originale sur 
@@ -70,11 +77,18 @@ const EventAssoSection:React.FC = () => {
             </div>
 
 
-            <div className='flex flex-col lg:items-end lg:px-20 transform lg:translate-x-36  '>
-                <div className='w-[467px] h-[311px] transform -translate-x-10 hidden lg:block'>
-                    <img src={cam1} alt="" className='w-full h-full object-cover object-center rounded-[5px]' />
+            <div className='flex flex-col lg:items-end lg:px-20 transform lg:translate-x-36  '
+                  data-aos="fade-left" // Animation de zoom
+                 data-aos-duration="1000"
+            >
+                <div className='w-[467px] h-[311px] transform -translate-x-10 hidden lg:block overflow-hidden'
+                
+                >
+                    <img src={cam1} alt="" className='w-full h-full object-cover object-center rounded-[5px] hover:scale-125 duration-100 cursor-pointer' />
                 </div>
-                <div className='lg:w-[467px] w-full lg:h-[351px] shadow-xl bg-white rounded-[5px] lg:transform lg:-translate-x-80 lg:-translate-y-36 lg:p-10 p-5 flex flex-col justify-between gap-3 lg:gap-0'>
+                <div className='lg:w-[467px] w-full lg:h-[351px] shadow-xl bg-white rounded-[5px] lg:transform lg:-translate-x-80 lg:-translate-y-36 lg:p-10 p-5 flex flex-col justify-between gap-3 lg:gap-0 cursor-pointer'
+                    
+                >
                     <div className='text-[13px] yellowbackcolor px-[10px] py-[5px] w-[82px] h-[28px] rounded-full flex items-center'>Concours</div>
                     <p className='font-bold lg:text-[19px] text-[16px]'>Concours d’Écriture Créative 2024</p>
                     <p className='text-[13px]'>Participez à notre concours en soumettant une nouvelle originale sur 

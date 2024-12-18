@@ -31,17 +31,21 @@ const OjectifAssoSection: React.FC = () => {
         },
     ]
     return (
-        <div className='w-full md:h-[721px] h-[550px]   relative graybackcolor'>
+        <div className='w-full md:h-[721px] h-[650px]   relative graybackcolor'>
 
             <div className=' w-full h-full   absolute'></div>
             <img src={assobook} alt="" className='w-full h-full object-cover object-center absolute' />
             <div className='text-white absolute w-full md:h-full h-auto py-10 md:py-0 flex items-center mx-auto   '>
                 <div className='relative w-full flex flex-col lg:gap-20 gap-10 justify-center container mx-auto  '>
-                    <h2 className='texth2 font-bold text-center'>Objectifs de notre l'Association</h2>
+                    <h2 className='texth2 font-bold text-center'
+                    data-aos="fade-right" data-aos-duration="1000"
+                    >Objectifs de notre l'Association</h2>
 
                     <div className='flex lg:flex-row  flex-col w-full gap-10 lg:gap-0'>
 
-                        <div className=' lg:w-1/2 flex justify-start items-center '>
+                        <div className=' lg:w-1/2 flex justify-start items-center '
+                        data-aos="fade-right" data-aos-duration="1000"
+                        >
                             <div className='w-[466px] lg:h-[224px]  font-montecarlo texth2 '>
                                 "   Un livre ouvert est une porte vers un monde meilleur.
                                 À travers nos objectifs, nous bâtissons des ponts entre
@@ -53,7 +57,9 @@ const OjectifAssoSection: React.FC = () => {
                             {
                                 datas.map((item) => {
                                     return (
-                                        <div key={item.id} className=' lg:h-[189px] h-[124px] rounded-[22px] border-[1px] border-white p-5'>
+                                        <div key={item.id} className=' lg:h-[189px] h-[124px] rounded-[22px] border-[1px] border-white p-5'
+                                        data-aos="zoom-in" data-aos-duration="1000"
+                                        >
                                             <div className='w-full h-1/2 '>
                                                 <img src={item.image} alt="" className='lg:w-[50px] w-[33px] lg:h-[50px] h-[33px] ' />
                                             </div>

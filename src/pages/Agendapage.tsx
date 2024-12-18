@@ -8,7 +8,7 @@ import agendas2 from "../images/agendas2.png"
 import agendas3 from "../images/agendas3.png"
 import Newsletter from '../section/NewsletterSection'
 import { Link } from 'react-router-dom'
-import Agendamodal from '../components/Agendamodal'
+// import Agendamodal from '../components/Agendamodal'
 
 const Agendapage: React.FC = () => {
 
@@ -79,7 +79,7 @@ const Agendapage: React.FC = () => {
             text: "Rencontre"
         },
     ]
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
@@ -87,7 +87,7 @@ const Agendapage: React.FC = () => {
 
         <>
             <Layouts>
-                <Agendamodal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                {/* <Agendamodal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
                 <div className='h-auto w-full opacitybackcolor py-16 mt-20 lg:mt-0'>
                     <div className='w-full h-auto flex justify-center mx-auto items-center gap-6 px-5 lg:px-0'>
                         {typecard.map((item) => {
@@ -117,7 +117,7 @@ const Agendapage: React.FC = () => {
                         {
                             typecards.map((item) => {
                                 return (
-                                    <div key={item.id} onClick={() => setIsModalOpen(true)} className=' md:h-[208px] border-2 border-gray-500 p-6 shadow-md rounded-[5px] border-opacity-50 space-y-6 cursor-pointer transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
+                                    <div key={item.id}  className=' md:h-[208px] border-2 border-gray-500 p-6 shadow-md rounded-[5px] border-opacity-50 space-y-6 cursor-pointer transition-all duration-300 ease-out hover:bg-[#007f99] hover:text-white'>
                                         <div className='px-[5px] py-[1px] yellowbackcolor inline-block rounded-full '>03/10/2024</div>
                                         <div className='text-[13px]'>
                                             <b>  Alexandra Schwartzbrod invitée des rencontres Littérature, enjeux contemporains </b>

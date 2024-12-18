@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layouts from '../partials/Layouts'
 import about from "../images/about.png"
 import about1 from "../images/about1.png"
@@ -35,6 +35,10 @@ const About: React.FC = () => {
             description: "Chargé de communication"
         },
     ]
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Fait défiler vers le haut de la page
+    }, []); //
     return (
         <>
             <Layouts>
@@ -43,8 +47,12 @@ const About: React.FC = () => {
                         <div className='container h-full w-full flex flex-row items-center px-20 lg:px-0'>
 
                             <div className='w-[680px] flex flex-col gap-6 justify-center'>
-                                <h1 className='texth1 text-white font-bold'>À Propos de Nous</h1>
-                                <p className='text-[13px] text-white'>Découvrez l’histoire de notre maison d’édition,
+                                <h1 className='texth1 text-white font-bold'
+                                    data-aos="fade-right" data-aos-duration="1000"
+                                >À Propos de Nous</h1>
+                                <p className='text-[13px] text-white'
+                                    data-aos="fade-right" data-aos-duration="1500"
+                                >Découvrez l’histoire de notre maison d’édition,
                                     dédiée à la promotion des talents littéraires. Nous allions tradition et innovation
                                     pour offrir une plateforme aux auteurs et faire découvrir leurs œuvres au monde entier.
                                     Notre mission : publier des livres qui inspirent, éduquent, et divertissent.</p>
@@ -59,12 +67,16 @@ const About: React.FC = () => {
                     <div className='w-full h-auto py-20 opacitybackcolor'>
                         <div className='container flex mx-auto'>
                             <div className='w-full h-auto flex lg:flex-row flex-col-reverse  gap-10'>
-                                <div className='lg:w-[40%] flex flex-col justify-center items-center'>
+                                <div className='lg:w-[40%] flex flex-col justify-center items-center'
+                                    data-aos="fade-right" data-aos-duration="1000"
+                                >
                                     <img src={about1} alt="" className='w-full h-[438px] object-cover object-center rounded-[10px]' />
                                     <p className='text-center w-[135px] text-center text-[11px]'>Founder & CEO de Finex
                                         Rosine Tchofo</p>
                                 </div>
-                                <div className='lg:w-[60%]'>
+                                <div className='lg:w-[60%]'
+                                    data-aos="fade-left" data-aos-duration="1800"
+                                >
                                     <p className='text-justify'>Mme Rosine Tchofo a toujours été fascinée par les mots et les histoires,
                                         même bien avant de savoir qu’elle en ferait sa vie. C’est cette passion pour
                                         la littérature qui l’a guidée tout au long de son parcours, des bancs de l’université en
@@ -91,23 +103,31 @@ const About: React.FC = () => {
                             <div className='w-full h-auto flex lg:flex-row flex-col gap-10'>
 
                                 <div className='lg:w-[55%] flex flex-col gap-5'>
-                                    <h2 className='texth2 font-bold'>
+                                    <h2 className='texth2 font-bold'
+                                        data-aos="fade-right" data-aos-duration="1000"
+                                    >
                                         Histoire de la Création de la <span className='graycolor'>Maison d’Édition Fénix</span>
                                     </h2>
-                                    <p className='text-[13px]'>Finex a vu le jour en 2017, après des mois de réflexions,
+                                    <p className='text-[13px]'
+                                        data-aos="fade-right" data-aos-duration="1100"
+                                    >Finex a vu le jour en 2017, après des mois de réflexions,
                                         d’hésitations, et beaucoup de café. L’idée n’était pas simplement
                                         de créer une autre maison d’édition parmi tant d’autres, mais un lieu où
                                         la créativité et l’authenticité primeraient. Pour Mme Rosine Tchofo,
                                         chaque auteur est unique, et chaque livre a son propre chemin à suivre.
                                     </p>
-                                    <p className='text-[13px]'>Depuis sa création, la maison s’est donnée pour mission de proposer
+                                    <p className='text-[13px]'
+                                        data-aos="fade-right" data-aos-duration="1200"
+                                    >Depuis sa création, la maison s’est donnée pour mission de proposer
                                         aux lecteurs des œuvres qui ne laissent pas indifférent. Elle s’adresse
                                         à tous ceux qui aiment se plonger dans des récits qui font réfléchir, qui
                                         émeuvent ou qui divertissent. Avec le temps, la maison a su se faire une
                                         place, petite mais solide, dans le monde littéraire,
                                         en publiant des livres qui, selon elle, méritent d’être lus et partagés.
                                     </p>
-                                    <p className='text-[13px]'>
+                                    <p className='text-[13px]'
+                                        data-aos="fade-right" data-aos-duration="1300"
+                                    >
                                         Chaque ouvrage publié est le fruit d’une collaboration étroite avec
                                         les auteurs. La maison d'édition prend le temps de travailler main
                                         dans la main avec eux pour que chaque livre reflète au mieux l’âme de
@@ -116,7 +136,9 @@ const About: React.FC = () => {
                                         à sa tête, une passionnée qui, chaque jour, met tout son cœur dans ce projet.
                                     </p>
                                 </div>
-                                <div className='lg:w-[45%] flex flex-col justify-center items-center md:block hidden'>
+                                <div className='lg:w-[45%] flex flex-col justify-center items-center md:block hidden'
+                                    data-aos="fade-left" data-aos-duration="1100"
+                                >
                                     <img src={about1} alt="" className='w-[446px] h-[446px] object-cover object-center rounded-[10px]' />
 
                                 </div>
@@ -131,9 +153,13 @@ const About: React.FC = () => {
                         </div>
                         <div className='w-full h-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-5 pb-10 container mx-auto'>
                             {
-                                team.map((item) => {
+                                team.map((item, index) => {
                                     return (
-                                        <div className='h-[255px] flex flex-col justify-center items-center' key={item.id}>
+                                        <div className='h-[255px] flex flex-col justify-center items-center' key={item.id}
+                                            data-aos="zoom-in" // Animation de zoom
+                                            data-aos-delay={index * 200}
+                                            data-aos-duration="1000"
+                                        >
                                             <div className=' md:h-[230px]  rounded-full '>
                                                 <img src={item.image} className='w-[230px] h-full object-cover object-center rounded-full' alt="" />
                                             </div>

@@ -8,11 +8,11 @@ const AssociaHeaderSection: React.FC = () => {
         <div className='w-full lg:h-[544px] graybackcolor'>
             <div className='w-full h-full flex lg:flex-row flex-col gap-8 '>
                 <div className='lg:w-1/2 h-full lg:pl-40 px-10 lg:px-0 py-20 text-white flex flex-col gap-8'>
-                    <h1 className='texth1 font-bold mt-10 lg:mt-0 '>
+                    <h1 className='texth1 font-bold mt-10 lg:mt-0 'data-aos="fade-right" data-aos-duration="1000">
                     Découvrez l'âme de
                     notre association
                     </h1>
-                    <p className='text-[13px]'> 
+                    <p className='text-[13px]' data-aos="fade-right" data-aos-duration="1500"> 
                     Plongez au cœur de notre engagement ! Notre association œuvre sans relâche pour 
                     promouvoir la culture, l'éducation et l'épanouissement des talents littéraires. 
                     À travers des projets innovants, des événements inspirants et des initiatives solidaires,
@@ -20,7 +20,9 @@ const AssociaHeaderSection: React.FC = () => {
                      Explorez notre histoire, nos objectifs et les nombreuses activités qui font 
                     de nous un acteur clé du développement culturel. Ensemble, écrivons l’avenir !
                     </p>
-                    <button onClick={()=>navigate('/contact')} className='lg:w-[289px] w-[239px] lg:h-[46px] h-[42px] px-[12px] py-[10px] orangebackcolor rounded-full lg:text-[16px] text-[13px]'>
+                    <button onClick={()=>navigate('/contact')} className='lg:w-[289px] w-[239px] lg:h-[46px] h-[42px] px-[12px] py-[10px] orangebackcolor rounded-full lg:text-[16px] text-[13px]'
+                        data-aos="fade-right" data-aos-duration="1800"
+                        >
                     Contactez-nous dès maintenant
                     </button>
                 </div>

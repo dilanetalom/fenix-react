@@ -40,7 +40,9 @@ const Newcostumer:React.FC = () => {
      {
       data.map((item)=>{
         return(
-          <div className='flex flex-col space-y-8'key={item.id}>
+          <div className='flex flex-col space-y-8'key={item.id}
+          data-aos="zoom-in"
+          >
           <div className='text-justify'>
       {item.description}
           </div>
